@@ -6,3 +6,4 @@
 - NextJS
 - TailwindCSS
 - TypeScript
+- NodeJS
