@@ -39,8 +39,8 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div id="contact" className="bg-muted-gradient pb-0">
-      <h2 className="section-heading">Contact Me</h2>
+    <div id="contact" className="bg-muted-gradient-1 pb-0">
+      <h2 className="section-heading">Let&apos;s Connect</h2>
       {!isSubmitted ? (
         <form onSubmit={handleSubmit} className="max-w-lg mx-auto contact-form">
           <div className="mb-4">

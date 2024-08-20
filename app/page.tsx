@@ -29,7 +29,7 @@ const Home: React.FC = () => {
 
         <div className="relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent drop-shadow-lg neon-text">
-            Hi, I&apos;m Jason Summers
+            Hi, I&apos;m Jason Summers.
           </h1>
           <p className="text-lg md:text-xl mb-4">Full-Stack Developer | Creating modern, responsive web applications</p>
           <div className="flex justify-center space-x-4 mb-4">

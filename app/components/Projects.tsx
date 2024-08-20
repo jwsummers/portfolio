@@ -21,8 +21,8 @@ const projects = [
 
 const Projects: React.FC = () => {
   return (
-    <div id="projects" className="bg-muted-gradient">
-      <h2 className="section-heading">Projects</h2>
+    <div id="projects" className="bg-muted-gradient-2">
+      <h2 className="section-heading">What I&apos;ve Done</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
         {projects.map((project, index) => (
           <div key={index} className="project-card">

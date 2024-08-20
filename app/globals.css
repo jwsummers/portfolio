@@ -5,6 +5,7 @@
 /* Custom Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
+
 body {
   font-family: 'Poppins', sans-serif;
   color: #d1d5db;
@@ -43,18 +44,38 @@ body {
 }
 
 /* Backgrounds for sections */
-.bg-muted-gradient {
-  background: linear-gradient(180deg, #2a2d4b, #1e1f33);
-  padding: 50px 0;
+.bg-muted-gradient-1 {
+  background: linear-gradient(180deg, #414591, #24263b);
+  padding: 70px 0;
 }
 
+.bg-muted-gradient-2 {
+  background: linear-gradient(180deg, #24263b, #414591);
+  padding: 70px 0;
+}
+
+.section-border-top {
+  border-top: 1px solid rgba(255, 255, 255, 0.2); /* Adjust color and opacity as needed */
+  padding-top: 20px; /* Adjust for spacing if necessary */
+}
+
+
+
 /* Section Headings */
-.section-heading {
-  color: #d1d5db; /* Light gray */
+.section-heading { 
+  font-weight: 300;
   font-size: 2.5rem;
+  text-transform: uppercase;
   text-align: center;
   margin-bottom: 40px;
+  background: linear-gradient(90deg, #f7f9f9, #d6f5fb);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
+
+
 
 /* Subtle border for project cards */
 .project-card {
