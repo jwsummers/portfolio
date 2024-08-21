@@ -16,12 +16,25 @@ const projects = [
     github: 'https://github.com/jwsummers/mace',
     live: 'https://myautocareexpert.com',
   },
-  // Add more projects here
+  {
+    title: 'T.R.E.D. | Tire Replacement Evaluation Device',
+    description: 'A web app for technicians to compare tire sizes to make decisions on replacement based off company standards',
+    image: '/images/tred.png',
+    github: 'https://github.com/jwsummers/Tire-Calculator',
+    live: 'https://tred.netlify.app/',
+  },
+  {
+    title: 'Labor Tracker',
+    description: 'A web app for tracking repair orders as well as commission labor hours',
+    image: '/images/laborTracker.png',
+    github: 'https://github.com/jwsummers/labor-tracker',
+    live: 'https://labortracker.netlify.app/',
+  },
 ];
 
 const Projects: React.FC = () => {
   return (
-    <div id="projects" className="bg-muted-gradient-2">
+    <div id="projects" className="bg-muted-gradient-2 py-12">
       <h2 className="section-heading">What I&apos;ve Done</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
         {projects.map((project, index) => (
@@ -29,8 +42,8 @@ const Projects: React.FC = () => {
             <Image
               src={project.image}
               alt={`${project.title} screenshot`}
-              width={800} // Adjust the width according to your design
-              height={600} // Adjust the height according to your design
+              width={800}
+              height={600}
               className="rounded-lg mb-4"
             />
             <h3 className="text-2xl font-bold mb-2 text-gray-200">{project.title}</h3>
