@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import HyperText from './components/HyperText';
 import { FaLinkedin, FaGithub, FaTwitter, FaArrowDown } from 'react-icons/fa';
 import Link from 'next/link';
 import Navbar from './components/Navbar';
@@ -28,10 +29,14 @@ const Home: React.FC = () => {
         </div>
 
         <div className="relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent drop-shadow-lg neon-text">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent drop-shadow-lg neon-text">
             Hi, I&apos;m Jason Summers.
           </h1>
-          <p className="text-lg md:text-xl mb-4">Full-Stack Developer | Creating modern, responsive web applications</p>
+          <HyperText
+        text="Full-Stack Developer | Creating modern, responsive web applications"
+        className="text-lg md:text-xl mb-4"
+        duration={40}
+      />
           <div className="flex justify-center space-x-4 mb-4">
             <a href="https://linkedin.com/in/jason-w-summers/" target="_blank" rel="noopener noreferrer" className="hover-bounce">
               <FaLinkedin size={30} />
