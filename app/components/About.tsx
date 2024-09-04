@@ -29,6 +29,9 @@ const slugs = [
   "netlify",
   "visualstudiocode",
   "figma",
+  "npm",
+  "gulp"
+
 ];
 
 const About: React.FC = () => {
@@ -40,8 +43,8 @@ const About: React.FC = () => {
       <div className="flex flex-col md:flex-row md:justify-between md:items-center w-full md:w-3/4 lg:w-2/3 space-y-8 md:space-y-0 md:space-x-8">
         
         {/* Headshot and About Me Box */}
-        <div className="flex flex-col md:w-1/2 md:items-center">
-          <div className="relative mb-8 md:mb-4 md:self-center">
+        <div className="flex flex-col md:w-1/2 md:items-center items-center">
+          <div className="relative mb-8 md:mb-4">
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-40 h-40 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full blur-xl"></div>
             </div>

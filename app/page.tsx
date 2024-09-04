@@ -2,6 +2,7 @@
 
 import React from 'react';
 import HyperText from './components/HyperText';
+import WordCycle from './components/WordCycle';
 import { FaLinkedin, FaGithub, FaTwitter, FaArrowDown } from 'react-icons/fa';
 import Link from 'next/link';
 import Navbar from './components/Navbar';
@@ -18,6 +19,9 @@ const Home: React.FC = () => {
     }
   };
 
+  // Words to cycle through in WordCycle component
+  const words = ['modern', 'responsive', 'user-friendly'];
+
   return (
     <>
       <Navbar />
@@ -29,14 +33,14 @@ const Home: React.FC = () => {
         </div>
 
         <div className="relative z-10">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent drop-shadow-lg neon-text">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent drop-shadow-lg neon-text">
             Hi, I&apos;m Jason Summers.
           </h1>
-          <HyperText
-        text="Full-Stack Developer | Creating modern, responsive web applications"
-        className="text-lg md:text-xl mb-4"
-        duration={40}
-      />
+
+          <p className="text-lg md:text-xl mb-4">
+  Full-Stack Developer | Creating <WordCycle words={words} className="text-green-300 font-bold" /> web applications
+</p>
+
           <div className="flex justify-center space-x-4 mb-4">
             <a href="https://linkedin.com/in/jason-w-summers/" target="_blank" rel="noopener noreferrer" className="hover-bounce">
               <FaLinkedin size={30} />
@@ -48,6 +52,7 @@ const Home: React.FC = () => {
               <FaTwitter size={30} />
             </a>
           </div>
+
           <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 justify-center items-center">
             <Link href="#projects" className="w-40 md:w-auto px-4 py-2 md:px-6 md:py-3 bg-blue-600 rounded hover:bg-blue-700 hover-bounce text-sm md:text-base text-center">
               View Projects
@@ -56,8 +61,11 @@ const Home: React.FC = () => {
               Contact Me
             </Link>
           </div>
+
           {/* Subheading under call-to-action buttons */}
-          <p className="mt-6 max-w-lg mx-auto"><span className="text-green-300 font-semibold shadow-lg">Passionate</span> about delivering impactful digital solutions, leveraging my experience to make a seamless transition into full-time web development, and always <span className="text-green-300 font-semibold shadow-lg">eager</span> to learn, grow, and refine my skills.</p>
+          <p className="mt-6 max-w-lg mx-auto">
+            <span className="text-green-300 font-semibold shadow-lg">Passionate</span> about delivering impactful digital solutions, leveraging my experience to make a seamless transition into full-time web development, and always <span className="text-green-300 font-semibold shadow-lg">eager</span> to learn, grow, and refine my skills.
+          </p>
         </div>
 
         {/* Interactive Down Arrow */}
@@ -65,6 +73,7 @@ const Home: React.FC = () => {
           <FaArrowDown className="inline-block text-gray-400" size={24} />
         </div>
       </div>
+
       <About />
       <Projects />
       <Contact />

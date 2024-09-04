@@ -1,5 +1,9 @@
 /* Custom Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+@import 'primereact/resources/themes/saga-blue/theme.css';
+@import 'primereact/resources/primereact.min.css';
+@import 'primeicons/primeicons.css';
+
 
 @tailwind base;
 @tailwind components;
@@ -152,4 +156,17 @@ section {
   color: white;
   border-radius: 8px;
   padding: 20px;
+}
+
+.custom-carousel .p-carousel-item {
+  display: flex;
+  justify-content: center;
+}
+
+.custom-carousel .p-carousel-item .border-round {
+  background-color: #2e2f48;
+}
+
+.p-button {
+  margin-right: 8px;
 }

@@ -33,7 +33,6 @@ export const cloudProps: Omit<ICloud, "children"> = {
     outlineColour: "#0000",
     maxSpeed: 0.04,
     minSpeed: 0.02,
-    // dragControl: false,
   },
 };
 
@@ -66,8 +65,11 @@ type IconData = Awaited<ReturnType<typeof fetchSimpleIcons>>;
 export default function IconCloud({ iconSlugs }: DynamicCloudProps) {
   const [data, setData] = useState<IconData | null>(null);
   const { theme } = useTheme();
+  const [isClient, setIsClient] = useState(false);
 
+  // Only run on the client side
   useEffect(() => {
+    setIsClient(true);
     fetchSimpleIcons({ slugs: iconSlugs }).then(setData);
   }, [iconSlugs]);
 
@@ -78,6 +80,11 @@ export default function IconCloud({ iconSlugs }: DynamicCloudProps) {
       renderCustomIcon(icon, theme || "light"),
     );
   }, [data, theme]);
+
+  if (!isClient) {
+    // Return null during SSR to prevent mismatch
+    return null;
+  }
 
   return (
     // @ts-ignore

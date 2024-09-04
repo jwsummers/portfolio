@@ -1,4 +1,6 @@
 import React from 'react';
+import { Carousel } from 'primereact/carousel';
+import { Button } from 'primereact/button';
 import Image from 'next/image';
 
 const projects = [
@@ -33,27 +35,72 @@ const projects = [
 ];
 
 const Projects: React.FC = () => {
+  const responsiveOptions = [
+    {
+      breakpoint: '1400px',
+      numVisible: 2,
+      numScroll: 1,
+    },
+    {
+      breakpoint: '1199px',
+      numVisible: 2,
+      numScroll: 1,
+    },
+    {
+      breakpoint: '767px',
+      numVisible: 1,
+      numScroll: 1,
+    },
+  ];
+
+  const projectTemplate = (project: any) => {
+    return (
+      <div className="border-1 surface-border border-round m-2 text-center py-5 px-3 flex flex-col items-center">
+        <div className="mb-3 w-full h-48 relative">
+          <Image
+            src={project.image}
+            alt={project.title}
+            layout="fill"
+            objectFit="contain"
+            className="rounded-lg shadow-lg"
+          />
+        </div>
+        <div>
+          <h4 className="mb-1 text-xl font-bold">{project.title}</h4>
+          <p className="mt-0 mb-3">{project.description}</p>
+          <div className="mt-5 flex flex-wrap gap-2 justify-content-center">
+            <Button
+              label="GitHub"
+              icon="pi pi-github"
+              className="p-button p-button-rounded"
+              onClick={() => window.open(project.github, '_blank')}
+            />
+            <Button
+              label="Live Demo"
+              icon="pi pi-external-link"
+              className="p-button-success p-button-rounded"
+              onClick={() => window.open(project.live, '_blank')}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div id="projects" className="bg-muted-gradient-2 py-12">
       <h2 className="section-heading">What I&apos;ve Done</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        {projects.map((project, index) => (
-          <div key={index} className="project-card">
-            <Image
-              src={project.image}
-              alt={`${project.title} screenshot`}
-              width={800}
-              height={600}
-              className="rounded-lg mb-4"
-            />
-            <h3 className="text-2xl font-bold mb-2 text-gray-200">{project.title}</h3>
-            <p className="text-lg mb-4 text-gray-400">{project.description}</p>
-            <div className="flex space-x-4">
-              <a href={project.github} className="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">GitHub</a>
-              <a href={project.live} className="text-green-400 hover:underline" target="_blank" rel="noopener noreferrer">Live Demo</a>
-            </div>
-          </div>
-        ))}
+      <div className="max-w-6xl mx-auto">
+        <Carousel
+          value={projects}
+          itemTemplate={projectTemplate}
+          numVisible={2}
+          numScroll={1}
+          responsiveOptions={responsiveOptions}
+          className="custom-carousel"
+          circular
+          autoplayInterval={3000}
+        />
       </div>
     </div>
   );
