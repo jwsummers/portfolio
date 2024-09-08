@@ -5,6 +5,13 @@ import Image from 'next/image';
 
 const projects = [
   {
+    title: 'TechTuned Web Design',
+    description: 'Website for TechTuned Web Design, a Web Development & Design agency',
+    image: '/images/TechTuned.png',
+    github: 'https://github.com/jwsummers/TechTunedWebDesign',
+    live: 'https://techtuned.netlify.app/',
+  },
+  {
     title: 'Cook-E',
     description: 'An online recipe book web app built with React, TypeScript, Postgres, and NodeJS',
     image: '/images/cookE.png',

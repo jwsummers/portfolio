@@ -21,6 +21,26 @@ body {
   100% { background-position: 0% 50%; }
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .nav-link {
   position: relative;
   color: #ffffff;
@@ -170,3 +190,4 @@ section {
 .p-button {
   margin-right: 8px;
 }
+
