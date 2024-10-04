@@ -36,7 +36,7 @@ const slugs = [
 
 const About: React.FC = () => {
   return (
-    <div id="about" className="min-h-screen flex flex-col justify-center items-center bg-muted-gradient-1 p-8 relative section-border-top">
+    <div id="about" className="min-h-screen flex flex-col justify-center items-center bg-muted-gradient-1 p-8 relative section-border-top scroll-mt-12">
       {/* Heading Animation */}
       <motion.h2
         className="section-heading"
@@ -82,7 +82,6 @@ const About: React.FC = () => {
               I am a passionate Full-Stack Developer and the founder of <span className='neon-text'><a href="https://techtuned.netlify.app/">TechTuned Web Design</a></span>, an agency focused on building innovative, user-friendly digital solutions for clients. My journey in web development has equipped me with a deep understanding of both front-end and back-end technologies, enabling me to create robust, responsive websites that meet modern standards. I thrive in collaborative environments and am dedicated to staying ahead of the curve with the latest industry trends and best practices.Whether working independently or leading projects at TechTuned Web Design, I am driven by a desire to deliver high-quality, impactful solutions that meet both user and business needs.
             </p>
             
-            {/* View Resume Button moved inside the about me box */}
             <motion.a
               href="/resume"
               className="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transform hover:scale-105 transition duration-300 ease-in-out"
@@ -111,7 +110,7 @@ const About: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Icon Cloud moved below, centered */}
+      {/* Icon Cloud */}
       <motion.div
         id="iconCloud"
         className="w-full md:w-3/4 lg:w-2/3 mt-12 flex justify-center items-center relative z-10 p-6 rounded-lg"

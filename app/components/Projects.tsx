@@ -97,6 +97,7 @@ const Projects: React.FC = () => {
   return (
     <div id="projects" className="bg-muted-gradient-2 py-12">
       <h2 className="section-heading">What I&apos;ve Done</h2>
+      <p className="mt-6 mb-4 p-4 text-center max-w-lg mx-auto">Here are some of my latest projects, feel free to inspect the code or live site by following the links provided.</p>
       <div className="max-w-6xl mx-auto">
         <Carousel
           value={projects}
