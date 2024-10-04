@@ -48,7 +48,7 @@ const About: React.FC = () => {
       </motion.h2>
 
       {/* About Section Container */}
-      <div className="flex flex-col md:flex-row md:justify-between md:items-center w-full md:w-3/4 lg:w-2/3 space-y-8 md:space-y-0 md:space-x-8">
+      <div className="flex flex-col md:flex-row md:justify-between md:items-start w-full md:w-3/4 lg:w-2/3 space-y-8 md:space-y-0 md:space-x-8">
         
         {/* Headshot and About Me Box */}
         <motion.div
@@ -78,36 +78,52 @@ const About: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.5, ease: 'easeOut' }}
           >
-            <p className="text-white">
-              I am a passionate Full-Stack Developer and the founder of <span className='neon-text'><a href="https://techtuned.netlify.app/">TechTuned Web Design</a></span>, an agency focused on building innovative, user-friendly digital solutions for clients. My journey in web development has equipped me with a deep understanding of both front-end and back-end technologies, enabling me to create robust, responsive websites that meet modern standards. I thrive in collaborative environments and am dedicated to staying ahead of the curve with the latest industry trends and best practices. My commitment to continuous learning and adaptability allows me to quickly master new tools and technologies, ensuring I can contribute effectively from day one. Whether working independently or leading projects at TechTuned Web Design, I am driven by a desire to deliver high-quality, impactful solutions that meet both user and business needs.
+            <p className="text-white mb-4">
+              I am a passionate Full-Stack Developer and the founder of <span className='neon-text'><a href="https://techtuned.netlify.app/">TechTuned Web Design</a></span>, an agency focused on building innovative, user-friendly digital solutions for clients. My journey in web development has equipped me with a deep understanding of both front-end and back-end technologies, enabling me to create robust, responsive websites that meet modern standards. I thrive in collaborative environments and am dedicated to staying ahead of the curve with the latest industry trends and best practices.Whether working independently or leading projects at TechTuned Web Design, I am driven by a desire to deliver high-quality, impactful solutions that meet both user and business needs.
             </p>
+            
+            {/* View Resume Button moved inside the about me box */}
+            <motion.a
+              href="/resume"
+              className="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transform hover:scale-105 transition duration-300 ease-in-out"
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.3 }}
+            >
+              View My Resume
+            </motion.a>
           </motion.div>
         </motion.div>
 
-        {/* Icon Cloud with Animation */}
+        {/* About Image */}
         <motion.div
-          id="iconCloud"
-          className="flex justify-center items-center md:w-1/2 relative z-10 shadow-lg p-6 bg-opacity-75 backdrop-filter backdrop-blur-lg rounded-lg mt-8 md:mt-0"
+          className="md:w-1/2 flex justify-center items-center md:self-end"
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1.2, ease: 'easeOut' }}
         >
-          <div className="w-full">
-            <h3 className="text-center text-xl font-semibold mb-4">Skills</h3>
-            <IconCloud iconSlugs={slugs} />
-          </div>
+          <Image
+            src="/images/about.png"
+            alt="About illustration"
+            width={400}
+            height={400}
+            className="rounded-lg shadow-lg mt-8 md:mt-0"
+          />
         </motion.div>
       </div>
 
-      {/* View Resume Button with Hover Animation */}
-      <motion.a
-        href="/resume"
-        className="mt-12 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transform hover:scale-105 transition duration-300 ease-in-out"
-        whileHover={{ scale: 1.1 }}
-        transition={{ duration: 0.3 }}
+      {/* Icon Cloud moved below, centered */}
+      <motion.div
+        id="iconCloud"
+        className="w-full md:w-3/4 lg:w-2/3 mt-12 flex justify-center items-center relative z-10 p-6 rounded-lg"
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.2, ease: 'easeOut' }}
       >
-        View My Resume
-      </motion.a>
+        <div className="w-full">
+          <h3 className="text-center text-xl font-semibold mb-4 neon-text underline">Professional Skills</h3>
+          <IconCloud iconSlugs={slugs} />
+        </div>
+      </motion.div>
     </div>
   );
 };
