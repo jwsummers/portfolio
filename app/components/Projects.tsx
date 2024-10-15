@@ -12,11 +12,11 @@ const projects = [
     live: 'https://techtuned.netlify.app/',
   },
   {
-    title: 'Cook-E',
-    description: 'An online recipe book web app built with React, TypeScript, Postgres, and NodeJS',
-    image: '/images/cookE.png',
-    github: 'https://github.com/jwsummers/Cook-E',
-    live: 'https://github.com/jwsummers/Cook-E',
+    title: 'OnTrack | Daily Food Logging',
+    description: 'A web app for tracking and logging daily food and water intake',
+    image: '/images/OnTrack.png',
+    github: 'https://github.com/jwsummers/OnTrack',
+    live: 'https://github.com/jwsummers/OnTrack',
   },
   {
     title: 'M.A.C.E | My Auto Care Expert',
@@ -24,6 +24,13 @@ const projects = [
     image: '/images/mace.png',
     github: 'https://github.com/jwsummers/mace',
     live: 'https://myautocareexpert.com',
+  },
+  {
+    title: 'Cook-E',
+    description: 'An online recipe book web app built with React, TypeScript, Postgres, and NodeJS',
+    image: '/images/cookE.png',
+    github: 'https://github.com/jwsummers/Cook-E',
+    live: 'https://github.com/jwsummers/Cook-E',
   },
   {
     title: 'T.R.E.D. | Tire Replacement Evaluation Device',
