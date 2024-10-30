@@ -8,9 +8,14 @@ const nextConfig = {
         port: '',
         pathname: '/path-to-images/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'miro.medium.com',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 };
-  
-  export default nextConfig;
-  
+
+export default nextConfig;

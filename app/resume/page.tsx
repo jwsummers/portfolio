@@ -28,7 +28,7 @@ const Resume: React.FC = () => {
   } z-50`}
 >
   <div className="container mx-auto flex flex-col md:flex-row items-center justify-center md:justify-between">
-    <a href="#about" className="text-white text-lg py-4 md:py-0 mx-2" onClick={toggleNav}>About</a>
+    <a href="#summary" className="text-white text-lg py-4 md:py-0 mx-2" onClick={toggleNav}>About</a>
     <a href="#experience" className="text-white text-lg py-4 md:py-0 mx-2" onClick={toggleNav}>Experience</a>
     <a href="#education" className="text-white text-lg py-4 md:py-0 mx-2" onClick={toggleNav}>Education</a>
     <a href="#skills" className="text-white text-lg py-4 md:py-0 mx-2" onClick={toggleNav}>Skills</a>
@@ -40,7 +40,7 @@ const Resume: React.FC = () => {
 </nav>
 
 
-      <section id="about" className="pt-24 md:pt-32">
+      <section id="summary" className="pt-24 md:pt-32">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold mb-4">Jason <span className="text-blue-600">Summers</span></h1>
           <p className="text-lg mb-2">Finksburg, MD 21048</p>
@@ -141,7 +141,7 @@ const Resume: React.FC = () => {
             className="rounded shadow"
           />
         </div>
-        <p>When I`&apos;`m not working on projects, learning, or keeping up to date on tech news and the latest trends, I enjoy disconnecting and being outside with my family. I live in a rural area and take pleasure in working in the yard, gardening, and caring for our chickens.</p>
+        <p>When I&apos;m not working on projects, learning, or keeping up to date on tech news and the latest trends, I enjoy disconnecting and being outside with my family. I live in a rural area and take pleasure in working in the yard, gardening, and caring for our chickens.</p>
         <p>When forced indoors, I relish quality family time, watching TV, movies, and playing video games. I also like to stay involved with the tech communities and engage with others on Discord and LinkedIn.</p>
       </section>
 
