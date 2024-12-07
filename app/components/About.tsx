@@ -71,42 +71,51 @@ const About: React.FC = () => {
         About Me
       </motion.h2>
 
-      {/* Main About Section */}
-<div className="flex flex-col md:flex-row md:justify-between w-full md:w-3/4 lg:w-2/3 items-center space-y-8 md:space-y-0">
-  {/* Headshot and Paragraph */}
-  <motion.div
-    className="flex flex-col md:w-1/2 space-y-4"
-    initial={{ opacity: 0, x: -100 }}
-    animate={{ opacity: 1, x: 0 }}
-    transition={{ duration: 1.2 }}
-  >
-    {/* About Me Text */}
-    <div className="relative z-10 shadow-lg p-6 w-full bg-opacity-75 backdrop-filter backdrop-blur-lg rounded-lg bg-gray-900/55"
-      style={{
-        boxShadow: "0 0 20px 5px rgba(255, 105, 180, 0.8)" // Glowing pink box shadow
-      }}
-    >
-      {/* Headshot */}
-      <div className="flex justify-center mb-4">
-        <Image
-          src="/headshot.png"
-          alt="Headshot"
-          width={150}
-          height={150}
-          className="rounded-full shadow-lg border-4 border-white"
-        />
-      </div>
-      <p className="text-white mb-4">
-        I am a passionate Full-Stack Developer and the founder of <span className="neon-text"><a href="https://techtuned.netlify.app/">TechTuned Web Design</a></span>, a web design agency committed to creating user-friendly digital solutions for clients. My journey in web development has equipped me with a deep understanding of both front-end and back-end technologies, enabling me to build robust, responsive websites. Whether leading projects at TechTuned or collaborating on freelance work, I’m driven by the desire to deliver impactful solutions that meet both user and business needs.
-      </p>
-      <a
-        href="/resume"
-        className="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transform hover:scale-105 transition duration-300 ease-in-out"
-      >
-        View My Resume
-      </a>
-    </div>
-  </motion.div>
+      {/* About Section Container */}
+      <div className="flex flex-col md:flex-row md:justify-between md:items-start w-full md:w-3/4 lg:w-2/3 space-y-8 md:space-y-0 md:space-x-8">
+        
+        {/* Headshot and About Me Box */}
+        <motion.div
+          className="flex flex-col md:w-1/2 md:items-center items-center"
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.2, ease: 'easeOut' }}
+        >
+          <div className="relative mb-8 md:mb-4">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-40 h-40 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full blur-xl"></div>
+            </div>
+            <Image
+              src="/headshot.png"
+              alt="Headshot"
+              width={150}
+              height={150}
+              className="relative z-10 rounded-full shadow-lg border-4 border-white hover:scale-110 transform transition duration-500 ease-in-out"
+            />
+          </div>
+
+          {/* About Me Box with Animation */}
+          <motion.div
+            id="aboutMe"
+            className="relative z-10 shadow-lg p-6 w-full bg-opacity-75 backdrop-filter backdrop-blur-lg rounded-lg"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.5, ease: 'easeOut' }}
+          >
+            <p className="text-white mb-4">
+              I am a passionate Full-Stack Developer and the founder of <span className='neon-text'><a href="https://techtuned.netlify.app/">TechTuned Web Design</a></span>, an agency focused on building innovative, user-friendly digital solutions for clients. My journey in web development has equipped me with a deep understanding of both front-end and back-end technologies, enabling me to create robust, responsive websites that meet modern standards. I thrive in collaborative environments and am dedicated to staying ahead of the curve with the latest industry trends and best practices.Whether working independently or leading projects at TechTuned Web Design, I am driven by a desire to deliver high-quality, impactful solutions that meet both user and business needs.
+            </p>
+            
+            <motion.a
+              href="/resume"
+              className="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transform hover:scale-105 transition duration-300 ease-in-out"
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.3 }}
+            >
+              View My Resume
+            </motion.a>
+          </motion.div>
+        </motion.div>
 
   {/* About Image */}
   <motion.div

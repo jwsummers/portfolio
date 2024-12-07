@@ -47,7 +47,7 @@ const Resume: React.FC = () => {
           <a href="mailto:jwsummers.dev@gmail.com" className="text-blue-600">jwsummers.dev@gmail.com</a>
         </div>
         <p className="max-w-4xl mx-auto mb-8">
-          With decades of expertise in complex problem-solving and web development, I bring a dynamic blend of skills and a diverse background to the IT arena. My journey as a seasoned programmer and freelance web developer has positioned me to seamlessly transition into roles encompassing full-stack web development, application security, and software engineering. I am deeply passionate about creating secure, responsive, user-friendly applications and driven to leverage my extensive background to forge impactful solutions in this field. My commitment to continuous learning and adaptation shines through as I aim to not only protect but also enhance the digital frameworks that power our world. Eager to contribute my diverse expertise, I am looking for opportunities where innovation in web development and security is not just welcomed but celebrated.
+          With decades of expertise in complex problem-solving and web development, I bring a dynamic blend of skills and a diverse background to the IT arena. My journey as a seasoned programmer and freelance web developer has positioned me to seamlessly transition into roles encompassing full-stack web development and software engineering. I am deeply passionate about creating secure, responsive, user-friendly applications and driven to leverage my extensive background to forge impactful solutions in this field. My commitment to continuous learning and adaptation shines through as I aim to not only protect but also enhance the digital frameworks that power our world. Eager to contribute my diverse expertise, I am looking for opportunities where innovation in web development and security is not just welcomed but celebrated.
         </p>
         <div className="flex justify-center space-x-4 mb-8">
           <a href="https://linkedin.com/in/jason-w-summers/" target="_blank" rel="noopener noreferrer" className="hover-bounce">
@@ -65,21 +65,33 @@ const Resume: React.FC = () => {
       <section id="experience" className="pt-24 mb-10">
         <h2 className="text-2xl font-bold mb-4">Experience</h2>
         <div className="mb-6">
-          <h3 className="text-xl font-semibold">Web Developer</h3>
-          <p className="italic">Freelance | Self - September 2018 - Present</p>
+          <h3 className="text-xl font-semibold">Founder & Web Developer</h3>
+          <a className= "italic" href="https://techtuned.netlify.app/">TechTuned Web Design</a>
           <ul className="list-disc pl-5">
-            <li>Built and currently managing <a href="https://myautocareexpert.com" className="text-blue-600 hover:underline">My Auto Care Expert</a>, a small business website focused on customer engagement and appointment scheduling, delivering a seamless user experience with dynamic web pages and API integration for secure email contact.</li>
-            <li>Developing <a href="https://github.com/jwsummers/Cook-E" className="text-blue-600 hover:underline">Cook-E Online Recipe Book</a>, using React and TypeScript, with a secure backend powered by Node.js and Express.js, featuring secure user authentication with bcrypt and a PostgreSQL database integration.</li>
-            <li>Created <a href="https://github.com/jwsummers/Tire-Calculator" className="text-blue-600 hover:underline">T.R.E.D (Tire Replacement Evaluation Device)</a>, a JavaScript-based tool designed to streamline tire replacement procedures with a focus on responsive design and user accessibility.</li>
+            <li>Established and operate a freelance web development agency specializing in creating responsive, user-friendly websites for small to medium-sized businesses.</li>
+            <li>Manage all phases of the web development lifecycle, from concept and design through implementation and optimization, using technologies such as React, Node.js, and Tailwind CSS.</li>
+            <li>Collaborate directly with clients to determine their requirements and vision, ensuring projects align with their business goals and deliver measurable results.</li>
+            <li>Implement best practices in code quality, security, and SEO to enhance site performance and visibility.</li>
           </ul>
         </div>
         <div className="mb-6">
-          <h3 className="text-xl font-semibold">State Inspection Technician</h3>
+          <h3 className="text-xl font-semibold">State Inspection Technician & Cross-Trained Technician Production Manager</h3>
           <p className="italic">CarMax - March 2007 - Present</p>
           <ul className="list-disc pl-5">
-            <li>Increased operational efficiency by 20% while reducing quality issues.</li>
-            <li>Trained new associates and management on internal systems and procedures, demonstrating leadership and communication skills.</li>
-            <li>Utilized analytical and problem-solving abilities to diagnose and resolve technical challenges, skills that translate well to web development and project management.</li>
+            <li>Led a team of 18, maximizing efficiency by 30% and minimizing quality comebacks.</li>
+            <li>Managed team workloads, monitored repair processes, and provided business approvals for repairs.</li>
+            <li>Engaged in daily collaboration with 5 diverse departments to address intricate challenges, ensuring alignment with both company and state standards and regulations within the dynamic environment of a Fortune 500 company.</li>
+            <li>Trained new associates, including upper management, on internal computer systems and daily business operations.</li>
+            <li>Led complex investigations for intricate problems, staying updated on evolving technology and common failures.</li>
+          </ul>
+        </div>
+        <div className="mb-6">
+          <h3 className="text-xl font-semibold">Web Developer</h3>
+          <p className="italic">Freelance | Self - September 2018 - Present</p>
+          <ul className="list-disc pl-5">
+            <li>Created various web solutions, including tools to manage repair orders and digital recipe storage apps.</li>
+            <li>Developing <a href="https://github.com/jwsummers/Cook-E" className="text-blue-600 hover:underline">Cook-E Online Recipe Book</a>, using React and TypeScript, with a secure backend powered by Node.js and Express.js, featuring secure user authentication with bcrypt and a PostgreSQL database integration.</li>
+            <li>Created <a href="https://github.com/jwsummers/Tire-Calculator" className="text-blue-600 hover:underline">T.R.E.D (Tire Replacement Evaluation Device)</a>, a JavaScript-based tool designed to streamline tire replacement procedures with a focus on responsive design and user accessibility.</li>
           </ul>
         </div>
       </section>
@@ -158,6 +170,19 @@ const Resume: React.FC = () => {
       <section id="projects" className="pt-24 mb-10">
         <h2 className="text-2xl font-bold mb-4">Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div>
+            <h4 className="font-semibold">TechTuned Web Design</h4>
+            <a href="https://techtuned.netlify.app/">
+              <Image
+                src="/images/TechTuned.png"
+                alt="Image of TechTuned Web Design Website"
+                width={300}
+                height={200}
+                className="rounded shadow"
+              />
+            </a>
+            <p>A website for my Web Design agency.</p>
+          </div>
           <div>
             <h4 className="font-semibold">Cook-E | Online Recipe Book</h4>
             <a href="https://github.com/jwsummers/Cook-E">
@@ -175,7 +200,7 @@ const Resume: React.FC = () => {
             <h4 className="font-semibold">T.R.E.D.</h4>
             <a href="https://tred.netlify.app/">
               <Image
-                src="/images/TRED.jpg"
+                src="/images/tred.png"
                 alt="Image of T.R.E.D web application"
                 width={300}
                 height={200}
@@ -188,7 +213,7 @@ const Resume: React.FC = () => {
             <h4 className="font-semibold">Labor Tracker</h4>
             <a href="https://labortracker.netlify.app/">
               <Image
-                src="/images/labortracker.jpg"
+                src="/images/laborTracker.png"
                 alt="Image of Labor Tracker web application"
                 width={300}
                 height={200}
