@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
     <nav className="fixed top-0 left-0 w-full bg-gray-900 text-white shadow-md z-50">
       <div className="container mx-auto px-4 py-2 flex justify-between items-center">
         <div className="text-xl font-bold">
-          <Link href="/">
+          <Link href="/" className='Name-Brand'>
             Jason Summers
           </Link>
         </div>
