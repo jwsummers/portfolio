@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
         <div className="text-xl font-bold">
           <Link href="/">
             <Image
-              src="/images/JSlogo-rb.png"
+              src="/images/JSdark.png"
               alt="JS Logo"
               width={65}
               height={50}
@@ -41,13 +41,13 @@ const Navbar: React.FC = () => {
             isOpen ? "top-12" : "top-[-300px] md:top-0"
           }`}
         >
-          <Link href="#about" className="nav-link" onClick={closeMenu}>
+          <Link href="/#about" className="nav-link" onClick={closeMenu}>
             About Me
           </Link>
-          <Link href="#projects" className="nav-link" onClick={closeMenu}>
+          <Link href="/#projects" className="nav-link" onClick={closeMenu}>
             Projects
           </Link>
-          <Link href="#contact" className="nav-link" onClick={closeMenu}>
+          <Link href="/#contact" className="nav-link" onClick={closeMenu}>
             Contact
           </Link>
         </div>
