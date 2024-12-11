@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { FaLinkedin, FaGithub, FaTwitter, FaBars } from "react-icons/fa6";
 import Image from "next/image";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import { FaTimes } from "react-icons/fa";
 
 const Resume: React.FC = () => {
@@ -13,14 +14,132 @@ const Resume: React.FC = () => {
     setDropdownOpen(!dropdownOpen);
   };
 
+  const closeDropdown = () => {
+    setDropdownOpen(false);
+  };
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 80; // Adjust this value to match your navbar height
+      const elementPosition =
+        element.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <>
       {/* Navbar */}
       <Navbar />
 
-      <div className="container mx-auto pt-24 px-4">
+      {/* Mobile Sidebar Toggle Button */}
+      <button
+        className="fixed top-24 left-0 z-50 bg-purple-600 text-white p-2 rounded-full shadow-md md:hidden"
+        style={{ marginLeft: "5px" }}
+        onClick={toggleDropdown}
+      >
+        {dropdownOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+      </button>
+
+      {/* Sidebar Navigation */}
+      <aside
+        className={`fixed top-20 left-0 w-64 h-full bg-gray-800 z-40 transform ${
+          dropdownOpen ? "translate-x-0" : "-translate-x-full"
+        } transition-transform`}
+      >
+        {/* Close Button */}
+        <button
+          className="absolute top-4 right-4 text-white"
+          onClick={toggleDropdown}
+        >
+          <FaTimes />
+        </button>
+
+        <nav className="p-4 space-y-4 mt-12">
+          <button
+            onClick={() => {
+              closeDropdown();
+              scrollToSection("summary");
+            }}
+            className="block text-purple-400 hover:underline"
+          >
+            About
+          </button>
+          <button
+            onClick={() => {
+              closeDropdown();
+              scrollToSection("experience");
+            }}
+            className="block text-purple-400 hover:underline"
+          >
+            Experience
+          </button>
+          <button
+            onClick={() => {
+              closeDropdown();
+              scrollToSection("education");
+            }}
+            className="block text-purple-400 hover:underline"
+          >
+            Education
+          </button>
+          <button
+            onClick={() => {
+              closeDropdown();
+              scrollToSection("skills");
+            }}
+            className="block text-purple-400 hover:underline"
+          >
+            Skills
+          </button>
+          <button
+            onClick={() => {
+              closeDropdown();
+              scrollToSection("certifications");
+            }}
+            className="block text-purple-400 hover:underline"
+          >
+            Certifications
+          </button>
+          <button
+            onClick={() => {
+              closeDropdown();
+              scrollToSection("projects");
+            }}
+            className="block text-purple-400 hover:underline"
+          >
+            Projects
+          </button>
+          <button
+            onClick={() => {
+              closeDropdown();
+              scrollToSection("blogs");
+            }}
+            className="block text-purple-400 hover:underline"
+          >
+            Blogs
+          </button>
+          <button
+            onClick={() => {
+              closeDropdown();
+              scrollToSection("interests");
+            }}
+            className="block text-purple-400 hover:underline"
+          >
+            Interests
+          </button>
+        </nav>
+      </aside>
+
+      <div className="container mx-auto pt-36 px-4 mb-8">
         {/* Download ATS Resume Button */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-8 mt-4">
           <button
             className="px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transform hover:scale-105 transition duration-300 ease-in-out"
             onClick={() =>
@@ -34,120 +153,57 @@ const Resume: React.FC = () => {
         {/* Resume Content */}
         <div className="flex flex-col md:flex-row w-full">
           {/* Sidebar Navigation */}
-          <aside className="hidden md:block md:w-1/4">
-            <nav className=" fixed top-20 mt-16 space-y-4">
-              <a
-                href="#summary"
-                className="block text-purple-400 hover:underline"
+          <aside className="hidden md:block md:w-1/4 top-20">
+            <nav className="fixed space-y-4">
+              <button
+                onClick={() => scrollToSection("summary")}
+                className="block text-purple-400 sidebar-link"
               >
                 About
-              </a>
-              <a
-                href="#experience"
-                className="block text-purple-400 hover:underline"
+              </button>
+              <button
+                onClick={() => scrollToSection("experience")}
+                className="block text-purple-400 sidebar-link"
               >
                 Experience
-              </a>
-              <a
-                href="#education"
-                className="block text-purple-400 hover:underline"
+              </button>
+              <button
+                onClick={() => scrollToSection("education")}
+                className="block text-purple-400 sidebar-link"
               >
                 Education
-              </a>
-              <a
-                href="#skills"
-                className="block text-purple-400 hover:underline"
+              </button>
+              <button
+                onClick={() => scrollToSection("skills")}
+                className="block text-purple-400 sidebar-link"
               >
                 Skills
-              </a>
-              <a
-                href="#certifications"
-                className="block text-purple-400 hover:underline"
+              </button>
+              <button
+                onClick={() => scrollToSection("certifications")}
+                className="block text-purple-400 sidebar-link"
               >
                 Certifications
-              </a>
-              <a
-                href="#projects"
-                className="block text-purple-400 hover:underline"
+              </button>
+              <button
+                onClick={() => scrollToSection("projects")}
+                className="block text-purple-400 sidebar-link"
               >
                 Projects
-              </a>
-              <a
-                href="#blogs"
-                className="block text-purple-400 hover:underline"
+              </button>
+              <button
+                onClick={() => scrollToSection("blogs")}
+                className="block text-purple-400 sidebar-link"
               >
                 Blogs
-              </a>
-              <a
-                href="#interests"
-                className="block text-purple-400 hover:underline"
+              </button>
+              <button
+                onClick={() => scrollToSection("interests")}
+                className="block text-purple-400 sidebar-link"
               >
                 Interests
-              </a>
+              </button>
             </nav>
-          </aside>
-
-          {/* Mobile Dropdown Navigation */}
-          <aside className="block md:hidden mb-4">
-            <button
-              className="w-full px-4 py-2 bg-gray-800 text-white flex items-center justify-between rounded-md"
-              onClick={toggleDropdown}
-            >
-              <span>Resume Sections</span>
-              {dropdownOpen ? <FaTimes /> : <FaBars />}
-            </button>
-            {dropdownOpen && (
-              <nav className="bg-gray-700 p-4 rounded-md space-y-2 mt-2">
-                <a
-                  href="#summary"
-                  className="block text-purple-400 hover:underline"
-                >
-                  About
-                </a>
-                <a
-                  href="#experience"
-                  className="block text-purple-400 hover:underline"
-                >
-                  Experience
-                </a>
-                <a
-                  href="#education"
-                  className="block text-purple-400 hover:underline"
-                >
-                  Education
-                </a>
-                <a
-                  href="#skills"
-                  className="block text-purple-400 hover:underline"
-                >
-                  Skills
-                </a>
-                <a
-                  href="#certifications"
-                  className="block text-purple-400 hover:underline"
-                >
-                  Certifications
-                </a>
-                <a
-                  href="#projects"
-                  className="block text-purple-400 hover:underline"
-                >
-                  Projects
-                </a>
-                <a
-                  href="#blogs"
-                  className="block text-purple-400 hover:underline"
-                >
-                  Blogs
-                </a>
-                <a
-                  href="#interests"
-                  className="block text-purple-400 hover:underline"
-                >
-                  Interests
-                </a>
-              </nav>
-            )}
           </aside>
 
           {/* Main Content */}
@@ -626,6 +682,7 @@ const Resume: React.FC = () => {
           </main>
         </div>
       </div>
+      <Footer />
     </>
   );
 };
