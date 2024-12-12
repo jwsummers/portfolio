@@ -1,13 +1,13 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
-const config = {
+const config: Config = {
   darkMode: ["class"],
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-	],
+  ],
   prefix: "",
   theme: {
     container: {
@@ -72,9 +72,48 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      boxShadow: {
+        input: `0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08)`,
+      },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-} satisfies Config
+  plugins: [
+    require("tailwindcss-animate"),
+    addVariablesForColors,
+  ],
+};
 
-export default config
+// Function to add CSS variables for colors
+function addVariablesForColors({ addBase, theme }: any) {
+  const allColors = flattenColorPalette(theme("colors"));
+  const newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+
+  addBase({
+    ":root": newVars,
+  });
+}
+
+// Function to flatten color palette
+function flattenColorPalette(colors: Record<string, any>): Record<string, string> {
+  const result: Record<string, string> = {};
+
+  function flatten(prefix: string, obj: Record<string, any>) {
+    for (const key in obj) {
+      const value = obj[key];
+      const newKey = prefix ? `${prefix}-${key}` : key;
+      if (typeof value === "string") {
+        result[newKey] = value;
+      } else {
+        flatten(newKey, value);
+      }
+    }
+  }
+
+  flatten("", colors);
+
+  return result;
+}
+
+export default config;

@@ -85,9 +85,9 @@ const About: React.FC = () => {
         >
           {/* About Me Text */}
           <div
-            className="relative z-10 shadow-lg p-6 w-full bg-opacity-75 backdrop-filter backdrop-blur-lg rounded-lg bg-gray-900/55"
+            className="relative z-10 mt-16 shadow-lg p-6 w-full bg-opacity-75 backdrop-filter backdrop-blur-lg rounded-lg bg-gray-900/55"
             style={{
-              boxShadow: "0 0 20px 5px rgba(255, 105, 180, 0.8)", // Glowing pink box shadow
+              boxShadow: "0 0 20px 5px rgba(255, 105, 180, 0.8)",
             }}
           >
             {/* Headshot */}
@@ -144,7 +144,12 @@ const About: React.FC = () => {
       {/* Remaining Sections */}
       <div className="w-full md:w-3/4 lg:w-2/3 space-y-12 mt-12">
         {/* Skills Cloud and GitHub Section */}
-        <div className="flex flex-col md:flex-row md:justify-between items-center space-y-8 md:space-y-0 md:gap-x-16">
+        <div
+          className="flex flex-col md:flex-row md:justify-between items-center space-y-8 md:space-y-0 md:gap-x-16 bg-gray-800/55 w-full p-4 rounded-lg shadow-lg"
+          style={{
+            boxShadow: "0 0 20px 5px rgba(255, 105, 180, 0.8)",
+          }}
+        >
           {/* GitHub Activity */}
           <motion.div
             className="md:w-1/2 bg-gray-800 p-4 rounded-lg shadow-lg"
@@ -182,13 +187,16 @@ const About: React.FC = () => {
         </div>
 
         {/* TechTuned and Fiverr Section */}
-        <div className="flex flex-col space-y-12 w-full md:w-3/4 lg:w-2/3 mx-auto">
+        <div className="flex flex-col space-y-12 md:w-3/4 lg:w-2/3 mx-auto">
           {/* TechTuned Web Design Section */}
           <motion.div
-            className="bg-gray-800 p-6 rounded-lg shadow-lg"
+            className="bg-gray-800/55 p-6 rounded-lg w-full shadow-lg"
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.2 }}
+            style={{
+              boxShadow: "0 0 20px 5px rgba(255, 105, 180, 0.8)",
+            }}
           >
             <div className="flex flex-col md:flex-row justify-between items-center">
               {/* Left: Text and Social Icons */}
@@ -282,10 +290,13 @@ const About: React.FC = () => {
 
           {/* Fiverr Section */}
           <motion.div
-            className="bg-gray-800 p-6 rounded-lg shadow-lg"
+            className="bg-gray-800/55 w-full p-6 rounded-lg shadow-lg"
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.2 }}
+            style={{
+              boxShadow: "0 0 20px 5px rgba(255, 105, 180, 0.8)",
+            }}
           >
             <h3 className="text-xl font-semibold neon-text mb-2">
               Hire Me on Fiverr

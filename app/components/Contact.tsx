@@ -1,12 +1,18 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { Label } from "./ui/label";
+import { Input } from "./ui/input";
+import { cn } from "@/lib/utils";
+import { FaEnvelope, FaUser } from "react-icons/fa";
 
 const Contact: React.FC = () => {
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setForm({
       ...form,
       [e.target.name]: e.target.value,
@@ -16,10 +22,10 @@ const Contact: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const response = await fetch('/api/sendEmail', {
-        method: 'POST',
+      const response = await fetch("/api/sendEmail", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           name: form.name,
@@ -31,10 +37,10 @@ const Contact: React.FC = () => {
       if (response.ok) {
         setIsSubmitted(true);
       } else {
-        console.error('Failed to send email');
+        console.error("Failed to send email");
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error:", error);
     }
   };
 
@@ -44,49 +50,93 @@ const Contact: React.FC = () => {
       {!isSubmitted ? (
         <form onSubmit={handleSubmit} className="max-w-lg mx-auto contact-form">
           <div className="mb-4">
-            <label className="block text-sm font-bold mb-2 text-gray-300" htmlFor="name">
+            <Label
+              className="block text-sm font-bold mb-2 text-gray-300"
+              htmlFor="name"
+            >
               Name
-            </label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              value={form.name}
-              onChange={handleChange}
-              required
-              className="contact-input"
-            />
+            </Label>
+            <div className="relative">
+              <span className="absolute inset-y-0 left-0 flex items-center pl-3">
+                <FaUser className="text-gray-400" />
+              </span>
+              <Input
+                id="name"
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                required
+                className="peer pl-8"
+              />
+            </div>
           </div>
           <div className="mb-4">
-            <label className="block text-sm font-bold mb-2 text-gray-300" htmlFor="email">
+            <Label
+              className="block text-sm font-bold mb-2 text-gray-300"
+              htmlFor="email"
+            >
               Email
-            </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              value={form.email}
-              onChange={handleChange}
-              required
-              className="contact-input"
-            />
+            </Label>
+            <div className="relative">
+              <span className="absolute inset-y-0 left-0 flex items-center pl-3">
+                <FaEnvelope className="text-gray-400" />
+              </span>
+              <Input
+                id="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                required
+                type="email"
+                className="peer pl-8"
+              />
+            </div>
           </div>
           <div className="mb-4">
-            <label className="block text-sm font-bold mb-2 text-gray-300" htmlFor="message">
+            <Label
+              htmlFor="message"
+              className="block text-sm font-bold text-gray-300 transition-colors duration-300 ease-in-out"
+            >
               Message
-            </label>
-            <textarea
+            </Label>
+            <Input
+              as="textarea"
               id="message"
               name="message"
               value={form.message}
               onChange={handleChange}
               required
-              className="contact-input"
+              className="peer"
             />
           </div>
-          <button type="submit" className="w-full px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+
+          <button
+            type="submit"
+            className="w-full px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+          >
             Send Message
           </button>
+          <div className="mt-6 text-center">
+            <p className="text-gray-300">
+              For Website Development inquiries, visit{" "}
+              <a
+                href="https://techtunedwebdesign.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-pink-500 hover:underline"
+              >
+                TechTuned Web Design
+              </a>{" "}
+              or email us at{" "}
+              <a
+                href="mailto:contact@techtunedwebdesign.com"
+                className="text-pink-500 hover:underline"
+              >
+                contact@techtunedwebdesign.com
+              </a>
+              .
+            </p>
+          </div>
         </form>
       ) : (
         <div className="text-center text-gray-300">

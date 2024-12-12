@@ -225,7 +225,6 @@ body {
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: 10px;
   border: 1px solid #555;
   border-radius: 4px;
   background-color: #3e3f5b;
@@ -234,7 +233,6 @@ body {
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: #888;
   outline: none;
 }
 
