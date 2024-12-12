@@ -103,7 +103,7 @@ const About: React.FC = () => {
             <p className="text-white mb-4">
               I am a passionate Full-Stack Developer and the founder of{" "}
               <span className="neon-text">
-                <a href="https://techtuned.netlify.app/">
+                <a href="https://techtunedwebdesign.com">
                   TechTuned Web Design
                 </a>
               </span>
