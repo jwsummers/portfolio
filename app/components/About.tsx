@@ -1,109 +1,104 @@
-import React from "react";
-import IconCloud from "./IconCloud";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import GitHubCalendar from "react-github-calendar";
-import { FaLinkedin, FaFacebook, FaXTwitter } from "react-icons/fa6";
-import { SiFiverr } from "react-icons/si";
+import React from 'react';
+import IconCloud from './IconCloud';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import GitHubCalendar from 'react-github-calendar';
+import { FaLinkedin, FaFacebook, FaXTwitter } from 'react-icons/fa6';
+import { SiFiverr } from 'react-icons/si';
 
 const slugs = [
-  "typescript",
-  "javascript",
-  "react",
-  "html5",
-  "css3",
-  "nodedotjs",
-  "express",
-  "nextdotjs",
-  "prisma",
-  "amazonaws",
-  "postgresql",
-  "vercel",
-  "testinglibrary",
-  "jest",
-  "cypress",
-  "docker",
-  "git",
-  "github",
-  "gitlab",
-  "bootstrap",
-  "sass",
-  "python",
-  "linux",
-  "netlify",
-  "visualstudiocode",
-  "figma",
-  "npm",
-  "gulp",
+  'typescript',
+  'javascript',
+  'react',
+  'html5',
+  'css3',
+  'nodedotjs',
+  'express',
+  'nextdotjs',
+  'prisma',
+  'amazonaws',
+  'postgresql',
+  'vercel',
+  'testinglibrary',
+  'jest',
+  'cypress',
+  'docker',
+  'git',
+  'github',
+  'gitlab',
+  'bootstrap',
+  'sass',
+  'python',
+  'linux',
+  'netlify',
+  'visualstudiocode',
+  'figma',
+  'npm',
+  'gulp',
 ];
 
 const explicitTheme = {
-  light: ["#E5E5E5", "#C7D2FE", "#A5B4FC", "#818CF8", "#6366F1"],
-  dark: ["#2E2F48", "#414591", "#6C63FF", "#C084F5", "#D76D77"],
+  light: ['#E5E5E5', '#C7D2FE', '#A5B4FC', '#818CF8', '#6366F1'],
+  dark: ['#2E2F48', '#414591', '#6C63FF', '#C084F5', '#D76D77'],
 };
 
 const selectLastHalfYear = (contributions: any[]) => {
-  const currentYear = new Date().getFullYear();
-  const currentMonth = new Date().getMonth();
-  const shownMonths = 6;
+  if (!contributions || contributions.length === 0) return [];
+
+  const sixMonthsAgo = new Date();
+  sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
 
   return contributions.filter((activity: { date: string | number | Date }) => {
     const date = new Date(activity.date);
-    const monthOfDay = date.getMonth();
-
-    return (
-      date.getFullYear() === currentYear &&
-      monthOfDay > currentMonth - shownMonths &&
-      monthOfDay <= currentMonth
-    );
+    return date >= sixMonthsAgo;
   });
 };
 
 const About: React.FC = () => {
   return (
     <div
-      id="about"
-      className="min-h-screen flex flex-col justify-center items-center bg-muted-gradient-1 p-8 section-border-top scroll-mt-12"
+      id='about'
+      className='min-h-screen flex flex-col justify-center items-center bg-muted-gradient-1 p-8 section-border-top scroll-mt-12'
     >
       <motion.h2
-        className="section-heading"
+        className='section-heading'
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
+        transition={{ duration: 1, ease: 'easeOut' }}
       >
         About Me
       </motion.h2>
 
       {/* Main About Section */}
-      <div className="flex flex-col md:flex-row md:justify-between w-full md:w-3/4 lg:w-2/3 items-center space-y-8 md:space-y-0">
+      <div className='flex flex-col md:flex-row md:justify-between w-full md:w-3/4 lg:w-2/3 items-center space-y-8 md:space-y-0'>
         {/* Headshot and Paragraph */}
         <motion.div
-          className="flex flex-col md:w-1/2 space-y-4"
+          className='flex flex-col md:w-1/2 space-y-4'
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1.2 }}
         >
           {/* About Me Text */}
           <div
-            className="relative z-10 mt-16 shadow-lg p-6 w-full bg-opacity-75 backdrop-filter backdrop-blur-lg rounded-lg bg-gray-900/55"
+            className='relative z-10 mt-16 shadow-lg p-6 w-full bg-opacity-75 backdrop-filter backdrop-blur-lg rounded-lg bg-gray-900/55'
             style={{
-              boxShadow: "0 0 20px 5px rgba(255, 105, 180, 0.8)",
+              boxShadow: '0 0 20px 5px rgba(255, 105, 180, 0.8)',
             }}
           >
             {/* Headshot */}
-            <div className="flex justify-center mb-4">
+            <div className='flex justify-center mb-4'>
               <Image
-                src="/headshot.png"
-                alt="Headshot"
+                src='/headshot.png'
+                alt='Headshot'
                 width={150}
                 height={150}
-                className="rounded-full shadow-lg border-4 border-white"
+                className='rounded-full shadow-lg border-4 border-white'
               />
             </div>
-            <p className="text-white mb-4">
-              I am a passionate Full-Stack Developer and the founder of{" "}
-              <span className="neon-text">
-                <a href="https://techtunedwebdesign.com">
+            <p className='text-white mb-4'>
+              I am a passionate Full-Stack Developer and the founder of{' '}
+              <span className='neon-text'>
+                <a href='https://techtunedwebdesign.com'>
                   TechTuned Web Design
                 </a>
               </span>
@@ -116,8 +111,8 @@ const About: React.FC = () => {
               solutions that meet both user and business needs.
             </p>
             <a
-              href="/resume"
-              className="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transform hover:scale-105 transition duration-300 ease-in-out"
+              href='/resume'
+              className='inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transform hover:scale-105 transition duration-300 ease-in-out'
             >
               View My Resume
             </a>
@@ -126,50 +121,50 @@ const About: React.FC = () => {
 
         {/* About Image */}
         <motion.div
-          className="md:w-1/2 flex justify-center items-center"
+          className='md:w-1/2 flex justify-center items-center'
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1.2 }}
         >
           <Image
-            src="/images/about.png"
-            alt="About illustration"
+            src='/images/about.png'
+            alt='About illustration'
             width={400}
             height={400}
-            className="rounded-lg shadow-lg"
+            className='rounded-lg shadow-lg'
           />
         </motion.div>
       </div>
 
       {/* Remaining Sections */}
-      <div className="w-full md:w-3/4 lg:w-2/3 space-y-12 mt-12">
+      <div className='w-full md:w-3/4 lg:w-2/3 space-y-12 mt-12'>
         {/* Skills Cloud and GitHub Section */}
         <div
-          className="flex flex-col md:flex-row md:justify-between items-center space-y-8 md:space-y-0 md:gap-x-16 bg-gray-800/55 w-full p-4 rounded-lg shadow-lg"
+          className='flex flex-col md:flex-row md:justify-between items-center space-y-8 md:space-y-0 md:gap-x-16 bg-gray-800/55 w-full p-4 rounded-lg shadow-lg'
           style={{
-            boxShadow: "0 0 20px 5px rgba(255, 105, 180, 0.8)",
+            boxShadow: '0 0 20px 5px rgba(255, 105, 180, 0.8)',
           }}
         >
           {/* GitHub Activity */}
           <motion.div
-            className="md:w-1/2 bg-gray-800 p-4 rounded-lg shadow-lg"
+            className='md:w-1/2 bg-gray-800 p-4 rounded-lg shadow-lg'
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.2 }}
           >
-            <h3 className="text-xl font-semibold neon-text mb-2">
+            <h3 className='text-xl font-semibold neon-text mb-2'>
               GitHub Activity
             </h3>
-            <div className="w-full max-w-xs md:max-w-md lg:max-w-lg mx-auto overflow-x-auto">
+            <div className='w-full max-w-xs md:max-w-md lg:max-w-lg mx-auto overflow-x-auto'>
               <GitHubCalendar
-                username="jwsummers"
+                username='jwsummers'
                 blockSize={15}
                 blockMargin={5}
                 fontSize={16}
                 theme={explicitTheme}
                 transformData={selectLastHalfYear}
                 labels={{
-                  totalCount: "{{count}} contributions in the last six months",
+                  totalCount: '{{count}} contributions in the last six months',
                 }}
               />
             </div>
@@ -177,7 +172,7 @@ const About: React.FC = () => {
 
           {/* Skills Cloud */}
           <motion.div
-            className="md:w-1/2 flex justify-center"
+            className='md:w-1/2 flex justify-center'
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.2 }}
@@ -187,56 +182,56 @@ const About: React.FC = () => {
         </div>
 
         {/* TechTuned and Fiverr Section */}
-        <div className="flex flex-col space-y-12 md:w-3/4 lg:w-2/3 mx-auto">
+        <div className='flex flex-col space-y-12 md:w-3/4 lg:w-2/3 mx-auto'>
           {/* TechTuned Web Design Section */}
           <motion.div
-            className="bg-gray-800/55 p-6 rounded-lg w-full shadow-lg"
+            className='bg-gray-800/55 p-6 rounded-lg w-full shadow-lg'
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.2 }}
             style={{
-              boxShadow: "0 0 20px 5px rgba(255, 105, 180, 0.8)",
+              boxShadow: '0 0 20px 5px rgba(255, 105, 180, 0.8)',
             }}
           >
-            <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className='flex flex-col md:flex-row justify-between items-center'>
               {/* Left: Text and Social Icons */}
-              <div className="md:w-1/2 space-y-4">
-                <h3 className="text-xl font-semibold neon-text mb-2">
+              <div className='md:w-1/2 space-y-4'>
+                <h3 className='text-xl font-semibold neon-text mb-2'>
                   TechTuned Web Design
                 </h3>
-                <p className="text-white">
-                  Visit my web design agency:{" "}
+                <p className='text-white'>
+                  Visit my web design agency:{' '}
                   <a
-                    href="https://techtuned.netlify.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-400 hover:underline"
+                    href='https://techtuned.netlify.app/'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='text-blue-400 hover:underline'
                   >
                     TechTuned Website
                   </a>
                 </p>
-                <div className="flex space-x-4 mt-4">
+                <div className='flex space-x-4 mt-4'>
                   <a
-                    href="https://www.linkedin.com/company/techtuned-web-design"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover-bounce"
+                    href='https://www.linkedin.com/company/techtuned-web-design'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='hover-bounce'
                   >
                     <FaLinkedin size={30} />
                   </a>
                   <a
-                    href="https://facebook.com/techtunedwebdesign"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover-bounce"
+                    href='https://facebook.com/techtunedwebdesign'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='hover-bounce'
                   >
                     <FaFacebook size={30} />
                   </a>
                   <a
-                    href="https://twitter.com/TechTuned"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover-bounce"
+                    href='https://twitter.com/TechTuned'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='hover-bounce'
                   >
                     <FaXTwitter size={30} />
                   </a>
@@ -244,45 +239,45 @@ const About: React.FC = () => {
               </div>
 
               {/* Right: Logo */}
-              <div className="md:w-1/2 flex justify-end">
+              <div className='md:w-1/2 flex justify-end'>
                 <Image
-                  src="/images/TT-Logo-Black-RB.png"
-                  alt="TechTuned Web Design Logo"
+                  src='/images/TT-Logo-Black-RB.png'
+                  alt='TechTuned Web Design Logo'
                   width={200}
                   height={200}
-                  className="rounded-lg md:w-[250px] md:h-[250px] w-[150px] h-[150px]"
+                  className='rounded-lg md:w-[250px] md:h-[250px] w-[150px] h-[150px]'
                 />
               </div>
             </div>
 
             {/* Projects Section */}
-            <div className="flex flex-col md:flex-row justify-between mt-8 space-y-4 md:space-y-0 md:space-x-4">
+            <div className='flex flex-col md:flex-row justify-between mt-8 space-y-4 md:space-y-0 md:space-x-4'>
               <a
-                href="https://7millionmedia.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1"
+                href='https://7millionmedia.com'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='flex-1'
               >
                 <Image
-                  src="/images/7MM.png"
-                  alt="TechTuned client project"
+                  src='/images/7MM.png'
+                  alt='TechTuned client project'
                   width={300}
                   height={200}
-                  className="rounded-lg shadow-lg w-full"
+                  className='rounded-lg shadow-lg w-full'
                 />
               </a>
               <a
-                href="https://myautocareexpert.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1"
+                href='https://myautocareexpert.com'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='flex-1'
               >
                 <Image
-                  src="/images/mace.png"
-                  alt="TechTuned client project"
+                  src='/images/mace.png'
+                  alt='TechTuned client project'
                   width={300}
                   height={200}
-                  className="rounded-lg shadow-lg w-full"
+                  className='rounded-lg shadow-lg w-full'
                 />
               </a>
             </div>
@@ -290,36 +285,36 @@ const About: React.FC = () => {
 
           {/* Fiverr Section */}
           <motion.div
-            className="bg-gray-800/55 w-full p-6 rounded-lg shadow-lg"
+            className='bg-gray-800/55 w-full p-6 rounded-lg shadow-lg'
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.2 }}
             style={{
-              boxShadow: "0 0 20px 5px rgba(255, 105, 180, 0.8)",
+              boxShadow: '0 0 20px 5px rgba(255, 105, 180, 0.8)',
             }}
           >
-            <h3 className="text-xl font-semibold neon-text mb-2">
+            <h3 className='text-xl font-semibold neon-text mb-2'>
               Hire Me on Fiverr
             </h3>
-            <p className="text-white">
-              Collaborate with me on{" "}
+            <p className='text-white'>
+              Collaborate with me on{' '}
               <a
-                href="https://www.fiverr.com/jasonwsummers?public_mode=true"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-400 hover:underline"
+                href='https://www.fiverr.com/jasonwsummers?public_mode=true'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='text-blue-400 hover:underline'
               >
                 Fiverr
-              </a>{" "}
+              </a>{' '}
               to bring your ideas to life!
             </p>
             <a
-              href="https://www.fiverr.com/s/o8zd8zG"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex justify-center mt-4"
+              href='https://www.fiverr.com/s/o8zd8zG'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='flex justify-center mt-4'
             >
-              <SiFiverr size={150} color="#ff00ff" />
+              <SiFiverr size={150} color='#ff00ff' />
             </a>
           </motion.div>
         </div>
