@@ -1,41 +1,9 @@
 import React from 'react';
-import IconCloud from './IconCloud';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import GitHubCalendar from 'react-github-calendar';
 import { FaLinkedin, FaFacebook, FaXTwitter } from 'react-icons/fa6';
 import { SiFiverr } from 'react-icons/si';
-
-const slugs = [
-  'typescript',
-  'javascript',
-  'react',
-  'html5',
-  'css3',
-  'nodedotjs',
-  'express',
-  'nextdotjs',
-  'prisma',
-  'amazonaws',
-  'postgresql',
-  'vercel',
-  'testinglibrary',
-  'jest',
-  'cypress',
-  'docker',
-  'git',
-  'github',
-  'gitlab',
-  'bootstrap',
-  'sass',
-  'python',
-  'linux',
-  'netlify',
-  'visualstudiocode',
-  'figma',
-  'npm',
-  'gulp',
-];
 
 const explicitTheme = {
   light: ['#E5E5E5', '#C7D2FE', '#A5B4FC', '#818CF8', '#6366F1'],
@@ -138,54 +106,39 @@ const About: React.FC = () => {
 
       {/* Remaining Sections */}
       <div className='w-full md:w-3/4 lg:w-2/3 space-y-12 mt-12'>
-        {/* Skills Cloud and GitHub Section */}
-        <div
-          className='flex flex-col md:flex-row md:justify-between items-center space-y-8 md:space-y-0 md:gap-x-16 bg-gray-800/55 w-full p-4 rounded-lg shadow-lg'
+        {/* GitHub Calendar Section */}
+        <motion.div
+          className='bg-gray-800/55 w-full p-6 rounded-lg shadow-lg mt-12'
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.2 }}
           style={{
             boxShadow: '0 0 20px 5px rgba(255, 105, 180, 0.8)',
           }}
         >
-          {/* GitHub Activity */}
-          <motion.div
-            className='md:w-1/2 bg-gray-800 p-4 rounded-lg shadow-lg'
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.2 }}
-          >
-            <h3 className='text-xl font-semibold neon-text mb-2'>
-              GitHub Activity
-            </h3>
-            <div className='w-full max-w-xs md:max-w-md lg:max-w-lg mx-auto overflow-x-auto'>
-              <GitHubCalendar
-                username='jwsummers'
-                blockSize={15}
-                blockMargin={5}
-                fontSize={16}
-                theme={explicitTheme}
-                transformData={selectLastHalfYear}
-                labels={{
-                  totalCount: '{{count}} contributions in the last six months',
-                }}
-              />
-            </div>
-          </motion.div>
-
-          {/* Skills Cloud */}
-          <motion.div
-            className='md:w-1/2 flex justify-center'
-            initial={{ opacity: 0, x: -100 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.2 }}
-          >
-            <IconCloud iconSlugs={slugs} />
-          </motion.div>
-        </div>
+          <h3 className='text-xl font-semibold neon-text mb-4 text-center'>
+            GitHub Activity
+          </h3>
+          <div className='w-full max-w-lg mx-auto overflow-x-auto'>
+            <GitHubCalendar
+              username='jwsummers'
+              blockSize={15}
+              blockMargin={5}
+              fontSize={16}
+              theme={explicitTheme}
+              transformData={selectLastHalfYear}
+              labels={{
+                totalCount: '{{count}} contributions in the last six months',
+              }}
+            />
+          </div>
+        </motion.div>
 
         {/* TechTuned and Fiverr Section */}
-        <div className='flex flex-col space-y-12 md:w-3/4 lg:w-2/3 mx-auto'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mx-auto'>
           {/* TechTuned Web Design Section */}
           <motion.div
-            className='bg-gray-800/55 p-6 rounded-lg w-full shadow-lg'
+            className='bg-gray-800/55 p-6 rounded-lg shadow-lg'
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.2 }}
@@ -285,7 +238,7 @@ const About: React.FC = () => {
 
           {/* Fiverr Section */}
           <motion.div
-            className='bg-gray-800/55 w-full p-6 rounded-lg shadow-lg'
+            className='bg-gray-800/55 p-6 rounded-lg shadow-lg'
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.2 }}

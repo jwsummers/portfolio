@@ -14,7 +14,16 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn.simpleicons.org',
+        port: '',
+        pathname: '/**',
+      },
     ],
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy:
+      "default-src 'self'; img-src 'self' https://cdn.simpleicons.org/; script-src 'none';",
   },
 };
 

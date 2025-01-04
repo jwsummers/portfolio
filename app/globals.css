@@ -5,7 +5,6 @@
 @import 'primereact/resources/primereact.min.css';
 @import 'primeicons/primeicons.css';
 
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,7 +13,6 @@
   --radius: 0.5rem;
 }
 
-
 body {
   font-family: 'Poppins', sans-serif;
   color: #d1d5db;
@@ -22,29 +20,53 @@ body {
 
 /* Gradient Background Animation */
 @keyframes gradientBackground {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideInLeft {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(0); }
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 @keyframes slideInRight {
-  from { transform: translateX(100%); }
-  to { transform: translateX(0); }
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .nav-link {
@@ -84,7 +106,7 @@ body {
 }
 
 .sidebar-link::after {
-  content: "";
+  content: '';
   position: absolute;
   width: 100%;
   height: 2px;
@@ -106,7 +128,14 @@ body {
 }
 
 .bg-animated {
-  background: linear-gradient(270deg, #1e3c72, #2a5298, #3a1c71, #d76d77, #ffaf7b);
+  background: linear-gradient(
+    270deg,
+    #1e3c72,
+    #2a5298,
+    #3a1c71,
+    #d76d77,
+    #ffaf7b
+  );
   background-size: 400% 400%;
   animation: gradientBackground 15s ease infinite;
 }
@@ -114,14 +143,8 @@ body {
 /* Neon Text Effect */
 .neon-text {
   color: #fff;
-  text-shadow:
-    0 0 5px #fff,
-    0 0 10px #fff,
-    0 0 20px #ff00ff,
-    0 0 30px #ff00ff,
-    0 0 40px #ff00ff,
-    0 0 50px #ff00ff,
-    0 0 60px #ff00ff;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff00ff, 0 0 30px #ff00ff,
+    0 0 40px #ff00ff, 0 0 50px #ff00ff, 0 0 60px #ff00ff;
 }
 
 .hover-bounce:hover {
@@ -131,14 +154,14 @@ body {
 
 .wave {
   animation-name: wave-animation;
-  animation-duration: 2.1s; 
+  animation-duration: 2.1s;
   animation-iteration-count: infinite;
   transform-origin: 70% 70%;
   display: inline-block;
 }
 
 .Name-Brand {
-  font-family: "WindSong", cursive;
+  font-family: 'WindSong', cursive;
   font-weight: 500;
   font-size: 2.5rem;
 }
@@ -186,7 +209,7 @@ body {
   padding-top: 20px;
 }
 
-.section-heading { 
+.section-heading {
   font-weight: 300;
   font-size: 2.5rem;
   text-transform: uppercase;
@@ -197,10 +220,7 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 
-  0 0 5px #fff,
-  0 0 10px #fff,
-  0 0 20px #ff00ff;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff00ff;
 }
 
 .project-card {
@@ -259,16 +279,30 @@ section {
   padding: 20px;
 }
 
-.custom-carousel .p-carousel-item {
-  display: flex;
-  justify-content: center;
-}
-
-.custom-carousel .p-carousel-item .border-round {
-  background-color: #2e2f48;
-}
-
 .p-button {
   margin-right: 8px;
 }
 
+.animate-marquee {
+  display: flex;
+  gap: 1rem;
+}
+
+.icon-scale:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px 5px rgba(255, 105, 180, 0.8);
+}
+
+/* Hide scrollbar */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
