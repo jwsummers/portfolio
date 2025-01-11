@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import ScrollingBanner from './ScrollingBanner';
 import { HoverEffect } from './ui/card-hover-effect';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 const Projects: React.FC = () => {
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
@@ -185,48 +187,107 @@ const Projects: React.FC = () => {
     setSelectedSkills((prev) => prev.filter((s) => s !== skill));
   };
 
+  const formatSkillName = (slug: string) => {
+    const formattedNames: { [key: string]: string } = {
+      nodedotjs: 'Node.JS',
+      nextdotjs: 'Next.JS',
+    };
+
+    return formattedNames[slug] || slug.charAt(0).toUpperCase() + slug.slice(1);
+  };
+
   return (
     <section id='projects' className='bg-muted-gradient-2 py-12'>
       <div className='container max-w-6xl mx-auto px-6'>
-        <h2 className='section-heading text-center'>What I&apos;ve Done</h2>
-        <p className='mt-6 mb-4 text-center text-gray-300 max-w-lg mx-auto'>
+        {/* Section Heading */}
+        <motion.h2
+          className='section-heading text-center'
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: 'easeOut' }}
+        >
+          What I&apos;ve Done
+        </motion.h2>
+
+        {/* Intro Text */}
+        <motion.p
+          className='mt-6 mb-4 text-center text-gray-300 max-w-lg mx-auto'
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+        >
           Here are some of my latest projects. Select a skill to filter projects
           or clear all filters to see everything.
-        </p>
+        </motion.p>
 
         {/* Scrolling Banner */}
-        <ScrollingBanner
-          iconSlugs={availableSkills}
-          onSkillSelect={addSkillToFilter}
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+        >
+          <ScrollingBanner
+            iconSlugs={availableSkills}
+            onSkillSelect={addSkillToFilter}
+          />
+        </motion.div>
 
         {/* Filtered Skills */}
-        <div className='flex flex-wrap gap-2 justify-center mb-4'>
+        <motion.div
+          className='flex flex-wrap gap-4 justify-center mb-4'
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.8 }}
+        >
           {selectedSkills.map((skill) => (
-            <div
+            <motion.div
               key={skill}
-              className='flex items-center justify-center bg-animated text-white px-4 py-2 m-4 rounded-full cursor-pointer shadow-md'
+              className='flex flex-col items-center bg-gray-800 rounded-lg shadow-md p-4 cursor-pointer'
               onClick={() => removeSkillFromFilter(skill)}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
             >
-              {skill}
-            </div>
+              <Image
+                src={`https://cdn.simpleicons.org/${skill}`}
+                alt={skill}
+                width={48}
+                height={48}
+                unoptimized
+              />
+              <p className='text-white text-sm mt-2'>
+                {formatSkillName(skill)}
+              </p>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Clear Filters Button */}
         {selectedSkills.length > 0 && (
-          <div className='text-center mb-4'>
-            <button
+          <motion.div
+            className='text-center mb-4'
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.8 }}
+          >
+            <motion.button
               onClick={() => setSelectedSkills([])}
               className='px-4 py-2 bg-pink-500 text-white rounded hover:bg-pink-600 transition'
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
               Clear All Filters
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
         )}
 
         {/* Project Cards */}
-        <HoverEffect items={filteredProjects} />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 0.8 }}
+        >
+          <HoverEffect items={filteredProjects} />
+        </motion.div>
       </div>
     </section>
   );

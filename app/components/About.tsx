@@ -38,80 +38,83 @@ const About: React.FC = () => {
       </motion.h2>
 
       {/* Main About Section */}
-      <div className='flex flex-col md:flex-row md:justify-between w-full md:w-3/4 lg:w-2/3 items-center space-y-8 md:space-y-0'>
-        {/* Headshot and Paragraph */}
-        <motion.div
-          className='flex flex-col md:w-1/2 space-y-4'
-          initial={{ opacity: 0, x: -100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1.2 }}
+      <div className='flex flex-col w-full md:w-3/4 lg:w-2/3 mx-auto'>
+        <div
+          className='relative z-10 shadow-lg p-6 w-full bg-opacity-75 backdrop-filter backdrop-blur-lg rounded-lg bg-gray-900/55'
+          style={{
+            boxShadow: '0 0 20px 5px rgba(255, 105, 180, 0.8)',
+          }}
         >
-          {/* About Me Text */}
-          <div
-            className='relative z-10 mt-16 shadow-lg p-6 w-full bg-opacity-75 backdrop-filter backdrop-blur-lg rounded-lg bg-gray-900/55'
-            style={{
-              boxShadow: '0 0 20px 5px rgba(255, 105, 180, 0.8)',
-            }}
-          >
-            {/* Headshot */}
-            <div className='flex justify-center mb-4'>
-              <Image
-                src='/headshot.png'
-                alt='Headshot'
-                width={150}
-                height={150}
-                className='rounded-full shadow-lg border-4 border-white'
-              />
-            </div>
-            <p className='text-white mb-4'>
-              I am a passionate Full-Stack Developer and the founder of{' '}
-              <span className='neon-text'>
-                <a href='https://techtunedwebdesign.com'>
-                  TechTuned Web Design
-                </a>
-              </span>
-              , a web design agency committed to creating user-friendly digital
-              solutions for clients. My journey in web development has equipped
-              me with a deep understanding of both front-end and back-end
-              technologies, enabling me to build robust, responsive websites.
-              Whether leading projects at TechTuned or collaborating on
-              freelance work, I’m driven by the desire to deliver impactful
-              solutions that meet both user and business needs.
-            </p>
-            <a
-              href='/resume'
-              className='inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transform hover:scale-105 transition duration-300 ease-in-out'
+          <div className='flex flex-col md:flex-row md:justify-between items-center space-y-8 md:space-y-0'>
+            {/* Left: About Me Text and Headshot */}
+            <motion.div
+              className='flex flex-col md:w-1/2 space-y-4'
+              initial={{ opacity: 0, x: -100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1.2 }}
+              viewport={{ once: true, amount: 0.3 }}
             >
-              View My Resume
-            </a>
+              {/* Headshot */}
+              <div className='flex justify-center mb-4'>
+                <Image
+                  src='/headshot.png'
+                  alt='Headshot'
+                  width={150}
+                  height={150}
+                  className='rounded-full shadow-lg border-4 border-white'
+                />
+              </div>
+              <p className='text-white mb-4'>
+                I am a passionate Full-Stack Developer and the founder of{' '}
+                <span className='neon-text'>
+                  <a href='https://techtunedwebdesign.com'>
+                    TechTuned Web Design
+                  </a>
+                </span>
+                , a web design agency committed to creating user-friendly
+                digital solutions for clients. My journey in web development has
+                equipped me with a deep understanding of both front-end and
+                back-end technologies, enabling me to build robust, responsive
+                websites. Whether leading projects at TechTuned or collaborating
+                on freelance work, I’m driven by the desire to deliver impactful
+                solutions that meet both user and business needs.
+              </p>
+              <a
+                href='/resume'
+                className='inline-block px-4 py-2 bg-blue-600 text-white text-center rounded hover:bg-blue-700 transform hover:scale-105 transition duration-300 ease-in-out'
+              >
+                View My Resume
+              </a>
+            </motion.div>
+            {/* Right: About Image */}
+            <motion.div
+              className='md:w-1/2 flex justify-center items-center'
+              initial={{ opacity: 0, x: 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1.2 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <Image
+                src='/images/about.png'
+                alt='About illustration'
+                width={400}
+                height={400}
+                className='rounded-lg shadow-lg'
+              />
+            </motion.div>
           </div>
-        </motion.div>
-
-        {/* About Image */}
-        <motion.div
-          className='md:w-1/2 flex justify-center items-center'
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1.2 }}
-        >
-          <Image
-            src='/images/about.png'
-            alt='About illustration'
-            width={400}
-            height={400}
-            className='rounded-lg shadow-lg'
-          />
-        </motion.div>
+        </div>
       </div>
 
       {/* Remaining Sections */}
       <div className='w-full md:w-3/4 lg:w-2/3 space-y-12 mt-12'>
         {/* GitHub Calendar Section */}
         <motion.div
-          className='bg-gray-800/55 w-full p-6 rounded-lg shadow-lg mt-12'
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 1, x: 0 }}
+          className='bg-gray-800/55 w-full p-6 rounded-lg shadow-lg'
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2 }}
+          viewport={{ once: true, amount: 0.3 }}
           style={{
             boxShadow: '0 0 20px 5px rgba(255, 105, 180, 0.8)',
           }}
@@ -140,8 +143,9 @@ const About: React.FC = () => {
           <motion.div
             className='bg-gray-800/55 p-6 rounded-lg shadow-lg'
             initial={{ opacity: 0, x: -100 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.2 }}
+            viewport={{ once: true, amount: 0.3 }}
             style={{
               boxShadow: '0 0 20px 5px rgba(255, 105, 180, 0.8)',
             }}
@@ -240,8 +244,9 @@ const About: React.FC = () => {
           <motion.div
             className='bg-gray-800/55 p-6 rounded-lg shadow-lg'
             initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.2 }}
+            viewport={{ once: true, amount: 0.3 }}
             style={{
               boxShadow: '0 0 20px 5px rgba(255, 105, 180, 0.8)',
             }}
