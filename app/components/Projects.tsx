@@ -49,6 +49,25 @@ const Projects: React.FC = () => {
       ],
     },
     {
+      title: 'Andover Wrestling Club Golf Tournament',
+      description:
+        'A website for a youth sports organization to promote a fundraising event and allow for online registration and sponsorship',
+      image: '/images/AWCgolf.png',
+      link: 'https://andoverwcgolftournament.com',
+      skills: [
+        'html5',
+        'css3',
+        'javascript',
+        'sass',
+        'bootstrap',
+        'netlify',
+        'npm',
+        'github',
+        'git',
+        'jquery',
+      ],
+    },
+    {
       title: '7 Million Media LLC',
       description:
         'A website for a Professional Photographer to improve online presence, customer experience, and SEO',
