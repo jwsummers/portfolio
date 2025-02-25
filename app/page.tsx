@@ -4,6 +4,7 @@ import React from 'react';
 import WordCycle from './components/WordCycle';
 import { FaLinkedin, FaGithub, FaTwitter, FaArrowDown } from 'react-icons/fa';
 import Link from 'next/link';
+import Image from 'next/image';
 import Navbar from './components/Navbar';
 import About from './components/About';
 import Projects from './components/Projects';
@@ -32,6 +33,14 @@ const Home: React.FC = () => {
         </div>
 
         <div className='relative z-10'>
+          <div className='md:flex justify-center sm: hidden'>
+            <Image
+              src='/images/AvatarRB.png'
+              alt='Headshot'
+              width={200}
+              height={200}
+            ></Image>
+          </div>
           <h1 className='text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent drop-shadow-lg neon-text'>
             Hi, I&apos;m Jason Summers.{' '}
             <span className='wave' role='img' aria-labelledby='wave'>

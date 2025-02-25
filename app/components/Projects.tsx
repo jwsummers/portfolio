@@ -9,6 +9,27 @@ const Projects: React.FC = () => {
 
   const projects = [
     {
+      title: 'TechMetrix',
+      description:
+        'TechMetrix is an efficiency tracking tool for automotive technicians, enabling streamlined repair order management, performance tracking, and workflow optimization.',
+      image: '/images/TechMetrix.png',
+      link: 'https://techmetrix.vercel.app/',
+      skills: [
+        'html5',
+        'nextdotjs',
+        'Vercel',
+        'npm',
+        'github',
+        'git',
+        'typescript',
+        'react',
+        'tailwindcss',
+        'prisma',
+        'postgresql',
+        'nodedotjs',
+      ],
+    },
+    {
       title: 'TechTuned Web Design',
       description:
         'Website for TechTuned Web Design, a Web Development & Design agency',
