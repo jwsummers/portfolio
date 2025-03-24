@@ -25,41 +25,48 @@ const Home: React.FC = () => {
   return (
     <>
       <Navbar />
-      <div className='relative h-screen flex flex-col justify-center items-center bg-animated text-white text-center px-4'>
-        {/* Abstract Background Shapes */}
-        <div className='absolute inset-0 z-0 overflow-hidden'>
-          <div className='bg-gradient-to-r from-pink-500 to-purple-500 opacity-50 rounded-full w-96 h-96 -top-20 -left-20 transform scale-150'></div>
-          <div className='bg-gradient-to-r from-blue-500 to-green-500 opacity-50 rounded-full w-72 h-72 -bottom-20 -right-20 transform scale-150'></div>
+      <div className='relative h-screen flex flex-col justify-center items-center bg-animated text-white text-center px-4 overflow-hidden'>
+        {/* Animated Background Gradients (Using more colors for richness) */}
+        <div className='absolute inset-0 z-0'>
+          <div className='bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 opacity-40 rounded-full w-96 h-96 -top-20 -left-20 transform scale-150 animate-pulse'></div>
+          <div className='bg-gradient-to-tl from-blue-500 via-green-500 to-yellow-500 opacity-40 rounded-full w-72 h-72 -bottom-20 -right-20 transform scale-150 animate-pulse'></div>
         </div>
 
         <div className='relative z-10'>
-          <div className='md:flex justify-center sm: hidden'>
+          {/* Avatar with Border and Shadow */}
+          <div className='md:flex justify-center sm:hidden mb-6'>
             <Image
               src='/images/AvatarRB.png'
               alt='Headshot'
               width={200}
               height={200}
-            ></Image>
+              className='rounded-full shadow-lg border-4 border-pink-500'
+            />
           </div>
+
           <h1 className='text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent drop-shadow-lg neon-text'>
-            Hi, I&apos;m Jason Summers.{' '}
+            Hi, I&apos;m Jason Summers{' '}
             <span className='wave' role='img' aria-labelledby='wave'>
               👋🏻
             </span>
           </h1>
 
-          <p className='text-lg md:text-xl mb-4'>
-            Full-Stack Developer | Creating{' '}
-            <WordCycle words={words} className='text-green-300 font-bold' /> web
-            applications
+          <p className='text-lg md:text-xl mb-6 text-gray-300'>
+            Full-Stack Developer crafting{' '}
+            <WordCycle
+              words={words}
+              className='text-white neon-text font-semibold'
+            />{' '}
+            web experiences.
           </p>
 
-          <div className='flex justify-center space-x-4 mb-4'>
+          {/* Social Links */}
+          <div className='flex justify-center space-x-6 mb-8'>
             <a
               href='https://linkedin.com/in/jason-w-summers/'
               target='_blank'
               rel='noopener noreferrer'
-              className='hover-bounce'
+              className='text-green-400 hover:text-pink-500 hover:scale-110 transition-transform duration-300'
             >
               <FaLinkedin size={30} />
             </a>
@@ -67,7 +74,7 @@ const Home: React.FC = () => {
               href='https://github.com/jwsummers'
               target='_blank'
               rel='noopener noreferrer'
-              className='hover-bounce'
+              className='text-green-400 hover:text-pink-500 hover:scale-110 transition-transform duration-300'
             >
               <FaGithub size={30} />
             </a>
@@ -75,36 +82,37 @@ const Home: React.FC = () => {
               href='https://twitter.com/JWSummers_dev'
               target='_blank'
               rel='noopener noreferrer'
-              className='hover-bounce'
+              className='text-green-400 hover:text-pink-500 hover:scale-110 transition-transform duration-300'
             >
               <FaTwitter size={30} />
             </a>
           </div>
 
+          {/* Call to Action Buttons (Styled Consistently) */}
           <div className='flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 justify-center items-center'>
             <Link
               href='#projects'
-              className='w-40 md:w-auto px-4 py-2 md:px-6 md:py-3 bg-blue-600 rounded hover:bg-blue-700 hover-bounce text-sm md:text-base text-center'
+              className='px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full hover:shadow-md transition duration-300 ease-in-out'
             >
-              View Projects
+              Explore Projects
             </Link>
             <Link
               href='#contact'
-              className='w-40 md:w-auto px-4 py-2 md:px-6 md:py-3 bg-green-600 rounded hover:bg-green-700 hover-bounce text-sm md:text-base text-center'
+              className='px-6 py-3 bg-gradient-to-r from-green-500 to-yellow-500 text-gray-800 font-semibold rounded-full hover:shadow-md transition duration-300 ease-in-out'
             >
-              Contact Me
+              Connect With Me
             </Link>
           </div>
 
-          {/* Subheading under call-to-action buttons */}
-          <p className='mt-6 max-w-lg mx-auto'>
-            <span className='text-green-300 font-semibold shadow-lg'>
+          {/* Subheading with Emphasis */}
+          <p className='mt-8 max-w-lg mx-auto text-gray-300'>
+            <span className='text-green-400 font-semibold shadow-lg'>
               Passionate
             </span>{' '}
-            about delivering impactful digital solutions, leveraging my
-            experience to make a seamless transition into full-time web
-            development, and always{' '}
-            <span className='text-green-300 font-semibold shadow-lg'>
+            about delivering impactful digital solutions, and committed to
+            making a seamless transition into full-time web development.
+            I&apos;m always{' '}
+            <span className='text-green-400 font-semibold shadow-md'>
               eager
             </span>{' '}
             to learn, grow, and refine my skills.

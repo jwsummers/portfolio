@@ -3,6 +3,7 @@ import ScrollingBanner from './ScrollingBanner';
 import { HoverEffect } from './ui/card-hover-effect';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { FaTimes } from 'react-icons/fa';
 
 const Projects: React.FC = () => {
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
@@ -237,8 +238,46 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <section id='projects' className='bg-muted-gradient-2 py-12'>
-      <div className='container max-w-6xl mx-auto px-6'>
+    <section id='projects' className='bg-muted-gradient-2 py-16 relative'>
+      {/* Animated Background Blobs */}
+      <div className='absolute top-0 left-0 w-full h-full pointer-events-none -z-10'>
+        <motion.div
+          className='absolute bg-purple-500 rounded-full filter blur-2xl opacity-30'
+          style={{ top: '10%', left: '10%', width: '150px', height: '150px' }}
+          animate={{
+            x: ['0px', '50px', '0px'],
+            y: ['0px', '20px', '0px'],
+            rotate: [0, 360, 0],
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
+        />
+        <motion.div
+          className='absolute bg-blue-500 rounded-full filter blur-2xl opacity-30'
+          style={{ top: '70%', right: '10%', width: '200px', height: '200px' }}
+          animate={{
+            x: ['0px', '-50px', '0px'],
+            y: ['0px', '-20px', '0px'],
+            rotate: [360, 0, 360],
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
+        />
+        <motion.div
+          className='absolute bg-pink-500 rounded-full filter blur-2xl opacity-30'
+          style={{
+            bottom: '10%',
+            left: '40%',
+            width: '100px',
+            height: '100px',
+          }}
+          animate={{
+            x: ['0px', '30px', '0px'],
+            y: ['0px', '-10px', '0px'],
+            rotate: [0, -360, 0],
+          }}
+          transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
+        />
+      </div>
+      <div className='container max-w-6xl mx-auto px-6 relative'>
         {/* Section Heading */}
         <motion.h2
           className='section-heading text-center'
@@ -246,18 +285,18 @@ const Projects: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: 'easeOut' }}
         >
-          What I&apos;ve Done
+          My Projects
         </motion.h2>
 
         {/* Intro Text */}
         <motion.p
-          className='mt-6 mb-4 text-center text-gray-300 max-w-lg mx-auto'
+          className='mt-6 mb-8 text-center text-gray-300 max-w-lg mx-auto'
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
         >
-          Here are some of my latest projects. Select a skill to filter projects
-          or clear all filters to see everything.
+          Explore my portfolio! Use the scrolling bar to filter projects by
+          technology, or clear all filters to view everything.
         </motion.p>
 
         {/* Scrolling Banner */}
@@ -274,7 +313,7 @@ const Projects: React.FC = () => {
 
         {/* Filtered Skills */}
         <motion.div
-          className='flex flex-wrap gap-4 justify-center mb-4'
+          className='flex flex-wrap gap-4 justify-center mt-8'
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.8 }}
@@ -282,21 +321,22 @@ const Projects: React.FC = () => {
           {selectedSkills.map((skill) => (
             <motion.div
               key={skill}
-              className='flex flex-col items-center bg-gray-800 rounded-lg shadow-md p-4 cursor-pointer'
+              className='flex items-center bg-gray-800 rounded-full shadow-md p-3 pr-4 cursor-pointer hover:shadow-lg transition-shadow duration-300'
               onClick={() => removeSkillFromFilter(skill)}
               whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+              whileTap={{ scale: 0.95 }}
             >
               <Image
                 src={`https://cdn.simpleicons.org/${skill}`}
                 alt={skill}
-                width={48}
-                height={48}
+                width={32}
+                height={32}
                 unoptimized
               />
-              <p className='text-white text-sm mt-2'>
+              <p className='text-white text-sm ml-2 mr-1'>
                 {formatSkillName(skill)}
               </p>
+              <FaTimes className='text-gray-500 hover:text-white ml-1' />
             </motion.div>
           ))}
         </motion.div>
@@ -304,18 +344,18 @@ const Projects: React.FC = () => {
         {/* Clear Filters Button */}
         {selectedSkills.length > 0 && (
           <motion.div
-            className='text-center mb-4'
+            className='text-center mt-6'
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}
           >
             <motion.button
               onClick={() => setSelectedSkills([])}
-              className='px-4 py-2 bg-pink-500 text-white rounded hover:bg-pink-600 transition'
+              className='px-5 py-3 bg-pink-500 text-white rounded-full hover:bg-pink-600 transition duration-300'
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Clear All Filters
+              Show All Projects
             </motion.button>
           </motion.div>
         )}
