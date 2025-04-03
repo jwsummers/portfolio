@@ -184,14 +184,14 @@ const Contact: React.FC = () => {
                   value={form.message}
                   onChange={handleChange}
                   required
-                  className='w-full rounded-md bg-gray-700 border-gray-600 text-white focus:ring-pink-500 focus:border-pink-500 resize-none' // Added styling and textarea-specific properties
+                  className='w-full rounded-md bg-gray-700 border-gray-600 text-white focus:ring-pink-500 focus:border-pink-500 resize-none'
                 />
               </motion.div>
 
               {/* Submit Button */}
               <motion.button
                 type='submit'
-                className='w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-md hover:bg-gradient-to-l hover:shadow-md transition duration-300 ease-in-out font-semibold' // Enhanced styling
+                className='w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-md hover:bg-gradient-to-l hover:shadow-md transition duration-300 ease-in-out font-semibold'
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

@@ -25,16 +25,17 @@ const Home: React.FC = () => {
   return (
     <>
       <Navbar />
-      <div className='relative h-screen flex flex-col justify-center items-center bg-animated text-white text-center px-4 overflow-hidden'>
-        {/* Animated Background Gradients (Using more colors for richness) */}
+      {/* Add top padding so content is pushed below the fixed Navbar */}
+      <div className='relative h-screen pt-24 flex flex-col justify-center items-center bg-animated text-white text-center px-4 overflow-hidden'>
+        {/* Animated Background Gradients */}
         <div className='absolute inset-0 z-0'>
           <div className='bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 opacity-40 rounded-full w-96 h-96 -top-20 -left-20 transform scale-150 animate-pulse'></div>
           <div className='bg-gradient-to-tl from-blue-500 via-green-500 to-yellow-500 opacity-40 rounded-full w-72 h-72 -bottom-20 -right-20 transform scale-150 animate-pulse'></div>
         </div>
 
         <div className='relative z-10'>
-          {/* Avatar with Border and Shadow */}
-          <div className='md:flex justify-center sm:hidden mb-6'>
+          {/* Avatar image only shown on medium screens and above */}
+          <div className='hidden md:flex justify-center mb-6'>
             <Image
               src='/images/AvatarRB.png'
               alt='Headshot'
@@ -88,7 +89,7 @@ const Home: React.FC = () => {
             </a>
           </div>
 
-          {/* Call to Action Buttons (Styled Consistently) */}
+          {/* Call to Action Buttons */}
           <div className='flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 justify-center items-center'>
             <Link
               href='#projects'
@@ -104,7 +105,7 @@ const Home: React.FC = () => {
             </Link>
           </div>
 
-          {/* Subheading with Emphasis */}
+          {/* Subheading */}
           <p className='mt-8 max-w-lg mx-auto text-gray-300'>
             <span className='text-green-400 font-semibold shadow-lg'>
               Passionate
