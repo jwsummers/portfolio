@@ -12,6 +12,26 @@ const Projects: React.FC = () => {
     {
       title: 'TechMetrix',
       description:
+        'AutoMate is a smart, user-friendly web application designed to help individuals track, manage, stay on top of vehicle maintenance and repair needs, and even get AI-powered predictions for upcoming issues.',
+      image: '/images/AutoMate.png',
+      link: 'https://github.com/jwsummers/AutoMate',
+      skills: [
+        'html5',
+        'nextdotjs',
+        'Vercel',
+        'npm',
+        'github',
+        'git',
+        'typescript',
+        'react',
+        'tailwindcss',
+        'postgresql',
+        'nodedotjs',
+      ],
+    },
+    {
+      title: 'TechMetrix',
+      description:
         'TechMetrix is an efficiency tracking tool for automotive technicians, enabling streamlined repair order management, performance tracking, and workflow optimization.',
       image: '/images/TechMetrix.png',
       link: 'https://techmetrix.vercel.app/',
