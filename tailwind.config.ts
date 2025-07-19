@@ -8,7 +8,6 @@ const config: Config = {
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
   ],
-  prefix: "",
   theme: {
     container: {
       center: true,
@@ -19,107 +18,42 @@ const config: Config = {
     },
     extend: {
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+        neon: {
+          blue: "#01fff0",
+          purple: "#a300fa",
+          pink: "#f906c7",
+          dark: "#16191e",
+          accent: "#24263b",
         },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
+        // Optional: override Tailwind's built-in
+        background: "#16191e",
+        card: "#24263b",
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        lg: "1rem",
+        md: "0.75rem",
+        sm: "0.5rem",
       },
+      boxShadow: {
+        neon: "0 0 16px #01fff0, 0 0 8px #a300fa, 0 0 18px #f906c7",
+        'neon-xs': "0 0 8px #01fff0",
+      },
+      // If you have custom animations, keep them
       keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
+        'gradient-bg': {
+          '0%': { 'background-position': '0% 50%' },
+          '50%': { 'background-position': '100% 50%' },
+          '100%': { 'background-position': '0% 50%' },
         },
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-      },
-      boxShadow: {
-        input: `0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08)`,
-        offset: '2px 2px 4px rgba(0, 0, 0, 0.5)',
-      },
-      textShadow: {
-        sm: '0 1px 2px var(--tw-shadow-color)',
-        DEFAULT: '0 2px 4px var(--tw-shadow-color)',
-        lg: '0 8px 16px var(--tw-shadow-color)',
+        'gradient-bg': 'gradient-bg 15s ease infinite',
       },
     },
   },
   plugins: [
     require("tailwindcss-animate"),
-    addVariablesForColors,
   ],
 };
-
-// Function to add CSS variables for colors
-function addVariablesForColors({ addBase, theme }: any) {
-  const allColors = flattenColorPalette(theme("colors"));
-  const newVars = Object.fromEntries(
-    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
-  );
-
-  addBase({
-    ":root": newVars,
-  });
-}
-
-// Function to flatten color palette
-function flattenColorPalette(colors: Record<string, any>): Record<string, string> {
-  const result: Record<string, string> = {};
-
-  function flatten(prefix: string, obj: Record<string, any>) {
-    for (const key in obj) {
-      const value = obj[key];
-      const newKey = prefix ? `${prefix}-${key}` : key;
-      if (typeof value === "string") {
-        result[newKey] = value;
-      } else {
-        flatten(newKey, value);
-      }
-    }
-  }
-
-  flatten("", colors);
-
-  return result;
-}
 
 export default config;

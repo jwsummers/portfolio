@@ -1,9 +1,10 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import GitHubCalendar from 'react-github-calendar';
 import { FaLinkedin, FaFacebook, FaXTwitter } from 'react-icons/fa6';
-import { SiFiverr } from 'react-icons/si';
 
 const explicitTheme = {
   light: ['#E5E5E5', '#C7D2FE', '#A5B4FC', '#818CF8', '#6366F1'],
@@ -12,10 +13,8 @@ const explicitTheme = {
 
 const selectLastHalfYear = (contributions: any[]) => {
   if (!contributions || contributions.length === 0) return [];
-
   const sixMonthsAgo = new Date();
   sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
-
   return contributions.filter((activity: { date: string | number | Date }) => {
     const date = new Date(activity.date);
     return date >= sixMonthsAgo;
@@ -24,9 +23,9 @@ const selectLastHalfYear = (contributions: any[]) => {
 
 const About: React.FC = () => {
   return (
-    <div
+    <section
       id='about'
-      className='min-h-screen flex flex-col justify-center items-center bg-muted-gradient-1 p-8 section-border-top scroll-mt-12'
+      className='relative min-h-screen flex flex-col justify-center items-center bg-muted-gradient-1 p-8 section-border-top scroll-mt-12'
     >
       <motion.h2
         className='section-heading'
@@ -37,256 +36,159 @@ const About: React.FC = () => {
         About Me
       </motion.h2>
 
-      {/* Main About Section - Reimagined */}
-      <div className='flex flex-col w-full md:w-3/4 lg:w-2/3 mx-auto'>
-        <div
-          className='relative z-10 shadow-lg p-6 w-full rounded-lg overflow-hidden' // Remove BG colors here
-          style={{
-            boxShadow: '0 0 20px 5px rgba(255, 105, 180, 0.8)',
-          }}
-        >
-          {/* Background Overlay with gradient and blur */}
-          <div className='absolute inset-0 bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900 opacity-70 blur-lg -z-10'></div>
-
-          <div className='flex flex-col md:flex-row md:justify-between items-center gap-8'>
-            {/* Left: About Me Text and Headshot - Column layout */}
-            <div className='flex flex-col md:w-1/2 space-y-6'>
-              {/* Headshot - Centered and with a more prominent border */}
-              <div className='flex justify-center'>
-                <Image
-                  src='/headshot.png'
-                  alt='Headshot'
-                  width={180}
-                  height={180}
-                  className='rounded-full shadow-lg border-4 border-pink-500'
-                  priority // add priority for initial load.
-                />
-              </div>
-
-              {/* About Me Text - More engaging and less dense. */}
-              <p className='text-white text-lg font-light leading-relaxed'>
-                Hi, I&apos;m Jason! A Full-Stack Developer passionate about
-                crafting intuitive web experiences. I lead{' '}
-                <a
-                  href='https://techtunedwebdesign.com'
-                  className='neon-text hover:underline'
-                >
-                  TechTuned Web Design
-                </a>
-                , where we build digital solutions tailored to your needs. My
-                focus is on creating performant and user-friendly websites that
-                drive results.
-              </p>
-
-              <motion.a
-                href='/resume'
-                className='inline-block px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-center rounded-full hover:shadow-md transition duration-300 ease-in-out self-start'
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Explore My Resume
-              </motion.a>
-            </div>
-
-            {/* Right: About Illustration - Made more prominent and modern */}
-            <motion.div
-              className='md:w-1/2 flex justify-center items-center'
-              initial={{ opacity: 0, x: 100 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1.2 }}
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              <Image
-                src='/images/about.png'
-                alt='About illustration'
-                width={500} // Increased image size
-                height={500} // Increased image size
-                className='rounded-xl shadow-xl' // More rounded corners
-                priority // Add priority for inital image loading.
-              />
-            </motion.div>
-          </div>
-        </div>
-      </div>
-
-      {/* Remaining Sections - Enhanced styling */}
-      <div className='w-full md:w-3/4 lg:w-2/3 space-y-12 mt-12'>
-        {/* GitHub Calendar Section - Refined */}
-        <motion.div
-          className='bg-gray-800 p-6 rounded-lg shadow-lg' // Removed opacity for more depth
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2 }}
-          viewport={{ once: true, amount: 0.3 }}
-          style={{
-            boxShadow: '0 0 20px 5px rgba(255, 105, 180, 0.8)',
-          }}
-        >
-          <h3 className='text-2xl font-semibold neon-text mb-4 text-center'>
-            My Coding Footprint
-          </h3>
-          <p className='text-gray-300 text-center mb-4'>
-            Here&apos;s a glimpse of my GitHub activity over the past six
-            months:
-          </p>
-          <div className='w-full max-w-lg mx-auto overflow-x-auto'>
-            <GitHubCalendar
-              username='jwsummers'
-              blockSize={15}
-              blockMargin={5}
-              fontSize={16}
-              theme={explicitTheme}
-              transformData={selectLastHalfYear}
-              labels={{
-                totalCount: '{{count}} contributions in the last six months',
-              }}
+      {/* Main Content Card */}
+      <div className='w-full md:w-4/5 lg:w-2/3 mx-auto rounded-3xl shadow-2xl bg-white/5 backdrop-blur-lg border border-white/10 mt-8 p-8 flex flex-col md:flex-row gap-10 items-center'>
+        {/* Left: Small Headshot & Socials */}
+        <div className='flex flex-col items-center md:w-1/4 gap-6'>
+          {/* Small, soft-glow headshot */}
+          <div className='relative'>
+            <Image
+              src='/headshot.png'
+              alt='Jason Summers'
+              width={120}
+              height={120}
+              className='rounded-full border-4 border-[#01fff0] shadow-lg'
+              priority
             />
+            <span className='absolute -bottom-2 -right-2 block w-6 h-6 bg-[#a300fa] rounded-full blur-sm opacity-70'></span>
           </div>
-        </motion.div>
-
-        {/* TechTuned and Fiverr Section - Modernized Grid */}
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto'>
-          {/* TechTuned Web Design Section - Elevated Design */}
-          <motion.div
-            className='bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col justify-between' //Flex to push social icons to bottom
-            initial={{ opacity: 0, x: -100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.2 }}
-            viewport={{ once: true, amount: 0.3 }}
-            style={{
-              boxShadow: '0 0 20px 5px rgba(255, 105, 180, 0.8)',
-            }}
-          >
-            <div>
-              <div className='flex flex-col md:flex-row justify-between items-center mb-6'>
-                {/* Left: Text */}
-                <div className='md:w-1/2 space-y-3'>
-                  <h3 className='text-xl font-semibold neon-text'>
-                    TechTuned Web Design
-                  </h3>
-                  <p className='text-gray-300'>
-                    I run a web design agency dedicated to creating user-centric
-                    digital experiences.
-                  </p>
-                  <a
-                    href='https://techtunedwebdesign.com'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='text-blue-400 hover:underline inline-block mt-2'
-                  >
-                    Visit TechTuned
-                  </a>
-                </div>
-
-                {/* Right: Logo */}
-                <div className='md:w-1/2 flex justify-end'>
-                  <Image
-                    src='/images/TT-Logo-Black-RB.png'
-                    alt='TechTuned Web Design Logo'
-                    width={200}
-                    height={200}
-                    className='rounded-lg md:w-[250px] md:h-[250px] w-[150px] h-[150px]'
-                  />
-                </div>
-              </div>
-
-              {/* Projects Section - More prominent display */}
-              <div className='flex flex-col md:flex-row justify-between mt-4 space-y-4 md:space-y-0 md:space-x-4'>
-                <a
-                  href='https://7millionmedia.com'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='flex-1 block rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300'
-                >
-                  <Image
-                    src='/images/7MM.png'
-                    alt='TechTuned client project'
-                    width={300}
-                    height={200}
-                    className='object-cover w-full h-full'
-                  />
-                </a>
-                <a
-                  href='https://myautocareexpert.com'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='flex-1 block rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300'
-                >
-                  <Image
-                    src='/images/mace.png'
-                    alt='TechTuned client project'
-                    width={300}
-                    height={200}
-                    className='object-cover w-full h-full'
-                  />
-                </a>
-              </div>
-            </div>
-
-            {/* Social Icons - Placed at the bottom */}
-            <div className='flex space-x-4 mt-6'>
-              <a
-                href='https://www.linkedin.com/company/techtuned-web-design'
-                target='_blank'
-                rel='noopener noreferrer'
-                className='hover-bounce text-gray-400 hover:text-white transition-colors'
-              >
-                <FaLinkedin size={30} />
-              </a>
-              <a
-                href='https://facebook.com/techtunedwebdesign'
-                target='_blank'
-                rel='noopener noreferrer'
-                className='hover-bounce text-gray-400 hover:text-white transition-colors'
-              >
-                <FaFacebook size={30} />
-              </a>
-              <a
-                href='https://twitter.com/TechTuned'
-                target='_blank'
-                rel='noopener noreferrer'
-                className='hover-bounce text-gray-400 hover:text-white transition-colors'
-              >
-                <FaXTwitter size={30} />
-              </a>
-            </div>
-          </motion.div>
-
-          {/* Fiverr Section -  More impactful*/}
-          <motion.div
-            className='bg-gradient-to-br from-purple-800 to-blue-800 p-6 rounded-lg shadow-lg text-center' // Gradient background
-            initial={{ opacity: 0, x: 100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.2 }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <h3 className='text-2xl font-semibold text-white mb-4'>
-              Need a Web Developer? Hire Me on Fiverr
-            </h3>
-            <p className='text-gray-300 mb-4'>
-              Let&apos;s collaborate and bring your web development ideas to
-              life.
-            </p>
+          {/* Socials */}
+          <div className='flex gap-4'>
             <a
-              href='https://www.fiverr.com/jasonwsummers?public_mode=true'
+              href='https://linkedin.com/in/jason-w-summers/'
               target='_blank'
               rel='noopener noreferrer'
-              className='inline-block bg-white text-blue-800 font-semibold py-3 px-6 rounded-full hover:bg-gray-100 transition-colors'
+              className='text-[#01fff0] hover:text-[#a300fa] transition'
+              aria-label='LinkedIn'
             >
-              View My Fiverr Profile
+              <FaLinkedin size={28} />
             </a>
             <a
-              href='https://www.fiverr.com/s/o8zd8zG'
+              href='https://facebook.com/techtunedwebdesign'
               target='_blank'
               rel='noopener noreferrer'
-              className='block mt-4'
+              className='text-[#a300fa] hover:text-[#01fff0] transition'
+              aria-label='Facebook'
             >
-              <SiFiverr size={80} color='#6C63FF' /> {/* Smaller icon size */}
+              <FaFacebook size={28} />
             </a>
-          </motion.div>
+            <a
+              href='https://twitter.com/TechTuned'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='text-[#f906c7] hover:text-[#01fff0] transition'
+              aria-label='Twitter'
+            >
+              <FaXTwitter size={28} />
+            </a>
+          </div>
+        </div>
+
+        {/* Right: Personal Story/Skills */}
+        <div className='flex-1'>
+          <motion.p
+            className='text-white/90 text-lg mb-6'
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <span className='font-semibold text-[#01fff0]'>
+              Hey, I’m Jason.
+            </span>{' '}
+            After 20 years as a master automotive technician and team leader, I
+            made the jump into web and SaaS development—fueled by a passion for
+            problem-solving, building things, and making a real impact.
+            <br />
+            <br />
+            I specialize in crafting bold, neon-powered web apps, SaaS tools,
+            and real-world digital solutions. My focus: performance, usability,
+            and a touch of creative fun. I love blending hands-on technical
+            know-how with design and business strategy.
+            <br />
+            <br />
+            <a href='https://www.techtunedwebdesign.com'>
+              <span className='font-semibold text-[#a300fa]'>TechTuned</span>
+            </a>{' '}
+            is my platform for building, experimenting, and sharing products
+            that solve problems—from asset tracking to AI-powered tools. I’m
+            always learning, always iterating.
+            <br />
+            <br />
+            I’m looking to join a forward-thinking team or company, or to launch
+            digital products that make a difference. Want to connect?{' '}
+            <a
+              href='/resume'
+              className='text-[#01fff0] underline hover:text-[#f906c7] transition'
+            >
+              Check out my resume
+            </a>{' '}
+            or drop me a message!
+          </motion.p>
+
+          {/* Optional: Skills/Stack List */}
+          <div className='flex flex-wrap gap-3 mt-4'>
+            <span className='bg-[#01fff0]/20 text-[#01fff0] px-4 py-2 rounded-xl text-xs font-semibold'>
+              React
+            </span>
+            <span className='bg-[#a300fa]/20 text-[#a300fa] px-4 py-2 rounded-xl text-xs font-semibold'>
+              Next.js
+            </span>
+            <span className='bg-[#f906c7]/20 text-[#f906c7] px-4 py-2 rounded-xl text-xs font-semibold'>
+              Tailwind CSS
+            </span>
+            <span className='bg-white/10 text-white px-4 py-2 rounded-xl text-xs font-semibold'>
+              TypeScript
+            </span>
+            <span className='bg-[#0ff] text-[#16191e] px-4 py-2 rounded-xl text-xs font-semibold'>
+              SaaS
+            </span>
+            <span className='bg-white/10 text-white px-4 py-2 rounded-xl text-xs font-semibold'>
+              Node.js
+            </span>
+            <span className='bg-white/10 text-white px-4 py-2 rounded-xl text-xs font-semibold'>
+              Prisma
+            </span>
+            <span className='bg-white/10 text-white px-4 py-2 rounded-xl text-xs font-semibold'>
+              PostgreSQL
+            </span>
+            <span className='bg-white/10 text-white px-4 py-2 rounded-xl text-xs font-semibold'>
+              AI APIs
+            </span>
+            {/* ...add any other you want */}
+          </div>
         </div>
       </div>
-    </div>
+
+      {/* GitHub Calendar */}
+      <motion.div
+        className='w-full md:w-4/5 lg:w-2/3 bg-white/10 rounded-3xl shadow-lg p-8 mt-12'
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+      >
+        <h3 className='text-2xl font-bold text-white/90 mb-4 text-center'>
+          My Coding Footprint
+        </h3>
+        <p className='text-gray-300 text-center mb-4'>
+          Here’s a glimpse of my GitHub activity over the past six months:
+        </p>
+        <div className='w-full max-w-lg mx-auto overflow-x-auto'>
+          <GitHubCalendar
+            username='jwsummers'
+            blockSize={15}
+            blockMargin={5}
+            fontSize={16}
+            theme={explicitTheme}
+            transformData={selectLastHalfYear}
+            labels={{
+              totalCount: '{{count}} contributions in the last six months',
+            }}
+          />
+        </div>
+      </motion.div>
+    </section>
   );
 };
 

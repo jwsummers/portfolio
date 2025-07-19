@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+'use client';
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 interface WordCycleProps {
   words: string[];
@@ -7,7 +8,11 @@ interface WordCycleProps {
   className?: string;
 }
 
-const WordCycle: React.FC<WordCycleProps> = ({ words, interval = 2000, className }) => {
+const WordCycle: React.FC<WordCycleProps> = ({
+  words,
+  interval = 2000,
+  className,
+}) => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
 
   useEffect(() => {
