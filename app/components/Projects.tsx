@@ -80,7 +80,7 @@ const projects = [
       'An AI detection tool that analyzes images and text to verify authenticity—perfect for content creators and businesses needing reliable verification.',
     image: '/images/VerifAI.png',
     link: 'https://github.com/jwsummers/VerifAI-WebApp',
-    live: null,
+    live: 'https://verifai-scan.vercel.app/',
     skills: [
       'react',
       'nextdotjs',
