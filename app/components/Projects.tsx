@@ -61,7 +61,7 @@ const projects = [
       'An AI-powered web app to help users manage vehicle maintenance, get predictive reminders, and track repair history—all in a sleek, intuitive interface.',
     image: '/images/AutoMate.png',
     link: 'https://github.com/jwsummers/AutoMate',
-    live: null,
+    live: 'https://automatenance.vercel.app/',
     skills: [
       'react',
       'nextdotjs',
