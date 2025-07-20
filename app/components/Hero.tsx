@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function Hero() {
   return (
-    <section className='relative flex flex-col items-center justify-center min-h-screen text-center bg-gradient-to-br from-[#16191e] via-[#19192a] to-[#260b36] overflow-hidden'>
+    <section className='relative pt-24 flex flex-col items-center justify-center min-h-screen text-center bg-gradient-to-br from-[#16191e] via-[#19192a] to-[#260b36] overflow-hidden'>
       {/* Neon moving background */}
       <div className='absolute inset-0 z-0 pointer-events-none'>
         <div className='absolute w-[600px] h-[600px] top-[-100px] left-[-200px] rounded-full bg-[#7F6FFF] opacity-30 blur-3xl animate-pulse'></div>
