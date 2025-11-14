@@ -6,26 +6,33 @@ import Link from 'next/link';
 
 export default function Hero() {
   return (
-    <section className='relative pt-24 flex flex-col items-center justify-center min-h-screen text-center bg-gradient-to-br from-[#16191e] via-[#19192a] to-[#260b36] overflow-hidden'>
-      {/* Neon moving background */}
-      <div className='absolute inset-0 z-0 pointer-events-none'>
-        <div className='absolute w-[600px] h-[600px] top-[-100px] left-[-200px] rounded-full bg-[#7F6FFF] opacity-30 blur-3xl animate-pulse'></div>
-        <div className='absolute w-[500px] h-[500px] bottom-[-100px] right-[-100px] rounded-full bg-[#f906c7] opacity-30 blur-3xl animate-pulse delay-200'></div>
-        <div className='absolute w-[700px] h-[700px] bottom-[-200px] left-[20vw] rounded-full bg-[#01fff0] opacity-20 blur-3xl animate-pulse delay-500'></div>
+    <section
+      className="relative flex min-h-screen flex-col items-center justify-center 
+      pt-24 text-center overflow-hidden
+      bg-gradient-to-br from-slate-950/95 via-slate-900/90 to-slate-950/95 
+      bg-cover bg-center"
+      style={{ backgroundImage: "url('/images/HeroBG.jpg')" }}
+    >
+      {/* Soft accent blobs */}
+      <div className="pointer-events-none absolute inset-0 z-0">
+        <div className="absolute -top-40 -left-40 h-[420px] w-[420px] rounded-full bg-sky-500/10 blur-3xl" />
+        <div className="absolute -bottom-40 -right-32 h-[380px] w-[380px] rounded-full bg-indigo-500/10 blur-3xl" />
       </div>
 
-      {/* Glass morphism card */}
+      {/* Content Card */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.2 }}
-        className='relative z-10 max-w-2xl mx-auto bg-white/5 backdrop-blur-md border border-white/20 rounded-3xl shadow-2xl p-10 md:p-14 flex flex-col items-center'
+        className="relative z-10 mx-4 flex max-w-2xl flex-col items-center 
+        rounded-3xl border border-slate-700/60 bg-slate-900/70 p-8 
+        shadow-2xl shadow-black/40 md:p-12"
       >
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.4 }}
-          className='text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-tr from-[#01fff0] via-[#a300fa] to-[#f906c7] drop-shadow-[0_0_10px_#01fff0] mb-6'
+          className="mb-4 text-4xl font-semibold tracking-tight text-slate-50 md:text-5xl"
         >
           Jason Summers
         </motion.h1>
@@ -34,10 +41,13 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.6 }}
-          className='mb-3'
+          className="mb-4"
         >
-          <span className='inline-block px-4 py-2 rounded-xl bg-black/40 text-[#01fff0] font-semibold text-lg shadow-md border border-white/10 uppercase tracking-wider'>
-            Full Stack Software Engineer
+          <span className="inline-block rounded-full border border-sky-500/40 
+            bg-sky-950/40 px-4 py-1 text-sm font-semibold uppercase 
+            tracking-[0.18em] text-sky-300"
+          >
+            Technical Systems &amp; Diagnostic Analyst
           </span>
         </motion.div>
 
@@ -45,34 +55,66 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.8 }}
-          className='text-lg md:text-xl text-white/90 mb-6'
+          className="mb-6 text-base text-slate-200 md:text-lg"
         >
-          I’m a builder at heart—transitioning from a 20-year career as a master
-          automotive technician into the fast lane of web and SaaS development.
-          I create neon-powered, glassy web apps and AI-driven tools with
-          real-world impact. Always learning, always building, always leveling
-          up.
+          I specialize in understanding how complex systems behave in the real world—vehicles,
+          workflows, data, and tools. After 20+ years diagnosing automotive systems and leading
+          technicians, I now focus on analyzing operations, uncovering root causes, and turning
+          noisy performance data into clear, actionable decisions.
         </motion.p>
 
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.9 }}
+          className="mb-8 text-sm text-slate-300 md:text-base"
+        >
+          I&apos;m pursuing roles where deep diagnostics, systems thinking, and operational insights
+          matter — Technical Systems Analyst, Diagnostic / Connected Vehicle Analyst, and
+          Operations Analyst. I bridge real-world technical experience with SQL, dashboards,
+          and internal applications.
+        </motion.p>
+
+        {/* Pillars */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 1.0 }}
-          className='flex gap-4 mb-8'
+          className="mb-8 flex flex-wrap justify-center gap-3"
+        >
+          <span className="rounded-full border border-slate-700 bg-slate-900/80 px-3 py-1 text-xs font-medium text-slate-200">
+            Systems diagnostics & root cause investigation
+          </span>
+          <span className="rounded-full border border-slate-700 bg-slate-900/80 px-3 py-1 text-xs font-medium text-slate-200">
+            Operations analysis
+          </span>
+          <span className="rounded-full border border-slate-700 bg-slate-900/80 px-3 py-1 text-xs font-medium text-slate-200">
+            SQL, dashboards & internal tools
+          </span>
+        </motion.div>
+
+        {/* CTAs */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 1.1 }}
+          className="mb-8 flex flex-wrap justify-center gap-4"
         >
           <Link
-            href='#projects'
-            className='relative inline-block px-8 py-3 rounded-2xl font-bold bg-gradient-to-tr from-[#f906c7] via-[#a300fa] to-[#01fff0] text-black neon-shadow hover:scale-105 hover:-translate-y-1 transition-transform shadow-lg focus:outline-none'
+            href="#experience"
+            className="inline-block rounded-xl bg-sky-500 px-7 py-2.5 
+              text-sm font-semibold text-slate-950 shadow-md transition 
+              hover:bg-sky-400 hover:-translate-y-0.5"
           >
-            View Projects
-            <span className='absolute bottom-0 left-0 w-full h-1 bg-[#01fff0] rounded-bl-2xl rounded-br-2xl opacity-70 blur-sm'></span>
+            View Experience
           </Link>
           <Link
-            href='#contact'
-            className='relative inline-block px-8 py-3 rounded-2xl font-bold bg-white/10 text-[#01fff0] neon-shadow hover:bg-[#01fff0]/10 hover:scale-105 hover:-translate-y-1 transition-transform shadow-lg border border-[#01fff0]/40 focus:outline-none'
+            href="#projects"
+            className="inline-block rounded-xl border border-slate-500 px-7 py-2.5 
+              text-sm font-semibold text-slate-50 shadow-md transition 
+              hover:border-sky-400 hover:text-sky-200 hover:-translate-y-0.5"
           >
-            Contact Me
-            <span className='absolute bottom-0 left-0 w-full h-1 bg-[#01fff0] rounded-bl-2xl rounded-br-2xl opacity-40 blur-sm'></span>
+            See Systems Projects
           </Link>
         </motion.div>
 
@@ -81,32 +123,32 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 1.2 }}
-          className='flex gap-6'
+          className="flex gap-6"
         >
           <a
-            href='https://github.com/jwsummers'
-            target='_blank'
-            rel='noopener noreferrer'
-            className='group'
-            aria-label='GitHub'
+            href="https://github.com/jwsummers"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group"
+            aria-label="GitHub"
           >
-            <Github className='w-7 h-7 text-[#a300fa] group-hover:text-[#01fff0] transition-all duration-200 drop-shadow-glow' />
+            <Github className="h-7 w-7 text-slate-300 transition group-hover:text-sky-400" />
           </a>
           <a
-            href='https://linkedin.com/in/jason-w-summers'
-            target='_blank'
-            rel='noopener noreferrer'
-            className='group'
-            aria-label='LinkedIn'
+            href="https://linkedin.com/in/jason-w-summers"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group"
+            aria-label="LinkedIn"
           >
-            <Linkedin className='w-7 h-7 text-[#01fff0] group-hover:text-[#f906c7] transition-all duration-200 drop-shadow-glow' />
+            <Linkedin className="h-7 w-7 text-slate-300 transition group-hover:text-sky-400" />
           </a>
           <a
-            href='mailto:jwsummers.dev@gmail.com'
-            className='group'
-            aria-label='Email'
+            href="mailto:hello@jasonwsummers.com"
+            className="group"
+            aria-label="Email"
           >
-            <Mail className='w-7 h-7 text-[#f906c7] group-hover:text-[#01fff0] transition-all duration-200 drop-shadow-glow' />
+            <Mail className="h-7 w-7 text-slate-300 transition group-hover:text-sky-400" />
           </a>
         </motion.div>
       </motion.div>

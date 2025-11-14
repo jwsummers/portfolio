@@ -17,22 +17,31 @@ body {
   background: #16191e;
 }
 
-/* Neon Section Headings */
+/* Subtle Neon Section Headings */
 .section-heading {
   font-weight: 800;
-  font-size: 2.5rem;
+  font-size: 2.3rem;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   margin-bottom: 40px;
   margin-top: 40px;
-  background: linear-gradient(90deg, #01fff0 20%, #a300fa 70%, #f906c7 100%);
+
+  background: linear-gradient(
+    90deg,
+    rgba(56, 255, 245, 0.9) 10%,
+    rgba(142, 88, 255, 0.9) 60%,
+    rgba(255, 95, 200, 0.85) 100%
+  );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+
+ 
   text-shadow:
-    0 2px 8px rgba(1,255,240,0.5),
-    0 4px 16px rgba(163,0,250,0.5), 
+    0 0 8px rgba(120, 200, 255, 0.15),
+    0 0 16px rgba(150, 120, 255, 0.12);
 }
+
 
 
 

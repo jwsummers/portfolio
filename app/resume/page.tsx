@@ -21,7 +21,7 @@ const Resume: React.FC = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      const offset = 80; // Adjust this value to match your navbar height
+      const offset = 80; // match navbar height
       const elementPosition =
         element.getBoundingClientRect().top + window.scrollY;
       const offsetPosition = elementPosition - offset;
@@ -35,39 +35,37 @@ const Resume: React.FC = () => {
 
   return (
     <>
-      {/* Navbar */}
       <Navbar />
 
       {/* Mobile Sidebar Toggle Button */}
       <button
-        className="fixed top-24 left-0 z-50 bg-purple-600 text-white p-2 rounded-full shadow-md md:hidden"
+        className="fixed left-0 top-24 z-50 rounded-full bg-sky-600 p-2 text-white shadow-md md:hidden"
         style={{ marginLeft: "5px" }}
         onClick={toggleDropdown}
       >
         {dropdownOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
       </button>
 
-      {/* Sidebar Navigation */}
+      {/* Sidebar Navigation (mobile) */}
       <aside
-        className={`fixed top-20 left-0 w-64 h-full bg-gray-800 z-40 transform ${
+        className={`fixed top-20 left-0 z-40 h-full w-64 bg-slate-900/95 transform ${
           dropdownOpen ? "translate-x-0" : "-translate-x-full"
         } transition-transform`}
       >
-        {/* Close Button */}
         <button
-          className="absolute top-4 right-4 text-white"
+          className="absolute right-4 top-4 text-slate-200"
           onClick={toggleDropdown}
         >
           <FaTimes />
         </button>
 
-        <nav className="p-4 space-y-4 mt-12">
+        <nav className="mt-12 space-y-4 p-4">
           <button
             onClick={() => {
               closeDropdown();
               scrollToSection("summary");
             }}
-            className="block text-purple-400 hover:underline"
+            className="block text-sky-300 hover:underline"
           >
             About
           </button>
@@ -76,7 +74,7 @@ const Resume: React.FC = () => {
               closeDropdown();
               scrollToSection("experience");
             }}
-            className="block text-purple-400 hover:underline"
+            className="block text-sky-300 hover:underline"
           >
             Experience
           </button>
@@ -85,7 +83,7 @@ const Resume: React.FC = () => {
               closeDropdown();
               scrollToSection("education");
             }}
-            className="block text-purple-400 hover:underline"
+            className="block text-sky-300 hover:underline"
           >
             Education
           </button>
@@ -94,7 +92,7 @@ const Resume: React.FC = () => {
               closeDropdown();
               scrollToSection("skills");
             }}
-            className="block text-purple-400 hover:underline"
+            className="block text-sky-300 hover:underline"
           >
             Skills
           </button>
@@ -103,7 +101,7 @@ const Resume: React.FC = () => {
               closeDropdown();
               scrollToSection("certifications");
             }}
-            className="block text-purple-400 hover:underline"
+            className="block text-sky-300 hover:underline"
           >
             Certifications
           </button>
@@ -112,7 +110,7 @@ const Resume: React.FC = () => {
               closeDropdown();
               scrollToSection("projects");
             }}
-            className="block text-purple-400 hover:underline"
+            className="block text-sky-300 hover:underline"
           >
             Projects
           </button>
@@ -121,27 +119,18 @@ const Resume: React.FC = () => {
               closeDropdown();
               scrollToSection("blogs");
             }}
-            className="block text-purple-400 hover:underline"
-          >
-            Blogs
-          </button>
-          <button
-            onClick={() => {
-              closeDropdown();
-              scrollToSection("interests");
-            }}
-            className="block text-purple-400 hover:underline"
+            className="block text-sky-300 hover:underline"
           >
             Interests
           </button>
         </nav>
       </aside>
 
-      <div className="container mx-auto pt-36 px-4 mb-8">
+      <div className="container mx-auto mb-8 px-4 pt-36">
         {/* Download ATS Resume Button */}
-        <div className="text-center mb-8 mt-4">
+        <div className="mt-4 mb-8 text-center">
           <button
-            className="px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transform hover:scale-105 transition duration-300 ease-in-out"
+            className="transform rounded bg-sky-600 px-4 py-2 text-sm font-semibold text-white shadow-md transition duration-300 ease-in-out hover:scale-105 hover:bg-sky-500"
             onClick={() =>
               window.open("/ATS-Friendly-Resume.pdf", "_blank", "noopener")
             }
@@ -150,56 +139,49 @@ const Resume: React.FC = () => {
           </button>
         </div>
 
-        {/* Resume Content */}
-        <div className="flex flex-col md:flex-row w-full">
-          {/* Sidebar Navigation */}
-          <aside className="hidden md:block md:w-1/4 top-20">
-            <nav className="fixed space-y-4">
+        <div className="flex w-full flex-col md:flex-row">
+          {/* Sidebar Navigation (desktop) */}
+          <aside className="hidden md:block md:w-1/4">
+            <nav className="fixed space-y-4 text-sm">
               <button
                 onClick={() => scrollToSection("summary")}
-                className="block text-purple-400 sidebar-link"
+                className="sidebar-link block text-sky-300"
               >
                 About
               </button>
               <button
                 onClick={() => scrollToSection("experience")}
-                className="block text-purple-400 sidebar-link"
+                className="sidebar-link block text-sky-300"
               >
                 Experience
               </button>
               <button
                 onClick={() => scrollToSection("education")}
-                className="block text-purple-400 sidebar-link"
+                className="sidebar-link block text-sky-300"
               >
                 Education
               </button>
               <button
                 onClick={() => scrollToSection("skills")}
-                className="block text-purple-400 sidebar-link"
+                className="sidebar-link block text-sky-300"
               >
                 Skills
               </button>
               <button
                 onClick={() => scrollToSection("certifications")}
-                className="block text-purple-400 sidebar-link"
+                className="sidebar-link block text-sky-300"
               >
                 Certifications
               </button>
               <button
                 onClick={() => scrollToSection("projects")}
-                className="block text-purple-400 sidebar-link"
+                className="sidebar-link block text-sky-300"
               >
                 Projects
               </button>
               <button
                 onClick={() => scrollToSection("blogs")}
-                className="block text-purple-400 sidebar-link"
-              >
-                Blogs
-              </button>
-              <button
-                onClick={() => scrollToSection("interests")}
-                className="block text-purple-400 sidebar-link"
+                className="sidebar-link block text-sky-300"
               >
                 Interests
               </button>
@@ -207,61 +189,72 @@ const Resume: React.FC = () => {
           </aside>
 
           {/* Main Content */}
-          <main className="md:w-3/4 space-y-12">
+          <main className="space-y-12 md:w-3/4 md:pl-10">
             {/* Summary Section */}
             <section
               id="summary"
-              className="p-6 bg-gray-800 rounded-lg shadow-lg"
+              className="rounded-lg bg-slate-900 p-6 shadow-lg shadow-black/40"
             >
-              <div className="text-center mb-4">
-                <h1 className="text-4xl font-bold text-white">
-                  Jason <span className="text-purple-400">Summers</span>
+              <div className="mb-4 text-center">
+                <h1 className="text-4xl font-bold text-slate-50">
+                  Jason <span className="text-sky-400">Summers</span>
                 </h1>
-                <p className="text-lg text-gray-300">Finksburg, MD 21048</p>
+                <p className="text-md mt-1 font-medium text-sky-300">
+                  Technical Systems &amp; Diagnostic Analyst
+                </p>
+                <p className="text-sm text-slate-300">Finksburg, MD 21048</p>
                 <a
-                  href="mailto:jwsummers.dev@gmail.com"
-                  className="text-purple-400"
+                  href="mailto:hello@jasonwsummers.com"
+                  className="text-sm text-sky-300 underline underline-offset-2"
                 >
-                  jwsummers.dev@gmail.com
+                  hello@jasonwsummers.com
                 </a>
               </div>
-              <p className="text-gray-300">
-                With decades of expertise in complex problem-solving and web
-                development, I bring a dynamic blend of skills and a diverse
-                background to the IT arena. My journey as a seasoned programmer
-                and freelance web developer has positioned me to seamlessly
-                transition into roles encompassing full-stack web development
-                and software engineering. I am deeply passionate about creating
-                secure, responsive, user-friendly applications and driven to
-                leverage my extensive background to forge impactful solutions in
-                this field. My commitment to continuous learning and adaptation
-                shines through as I aim to not only protect but also enhance the
-                digital frameworks that power our world. Eager to contribute my
-                diverse expertise, I am looking for opportunities where
-                innovation in web development and security is not just welcomed
-                but celebrated.
+              <p className="text-sm text-slate-200 md:text-base">
+                I bring 20+ years of experience diagnosing complex automotive
+                systems and leading technicians in a high-volume, Fortune 100
+                environment. As a State Inspection Technician and cross-trained
+                Technician Production Manager at CarMax, I&apos;ve led a team of
+                18, made repair and cost decisions, and collaborated across
+                departments to balance safety, quality, and cycle time.
               </p>
-              <div className="flex justify-center space-x-4 mt-4">
+              <p className="mt-4 text-sm text-slate-200 md:text-base">
+                I&apos;m currently part of a company-wide stretch assignment
+                focused on analyzing labor line usage: identifying overlapping
+                and misapplied labors, researching trends, and presenting
+                findings to senior leadership to support a major cost-reduction
+                and process-clarity initiative.
+              </p>
+              <p className="mt-4 text-sm text-slate-200 md:text-base">
+                Alongside this, I&apos;ve spent several years learning modern
+                development and data tools (React, TypeScript, SQL, Node.js) and
+                building internal-style dashboards and utilities that support
+                analysis. I&apos;m targeting roles such as Technical Systems
+                Analyst, Diagnostic / Connected Vehicle Analyst, or Operations
+                Analyst, where deep diagnostics, systems thinking, and
+                data-informed decision making are central to the work.
+              </p>
+              <div className="mt-4 flex justify-center space-x-4">
                 <a
                   href="https://linkedin.com/in/jason-w-summers/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <FaLinkedin size={30} className="text-purple-400" />
+                  <FaLinkedin size={30} className="text-sky-400" />
                 </a>
                 <a
                   href="https://github.com/jwsummers"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <FaGithub size={30} className="text-purple-400" />
+                  <FaGithub size={30} className="text-sky-400" />
                 </a>
                 <a
                   href="https://twitter.com/JWSummers_dev"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <FaTwitter size={30} className="text-purple-400" />
+                  <FaTwitter size={30} className="text-sky-400" />
                 </a>
               </div>
             </section>
@@ -269,83 +262,107 @@ const Resume: React.FC = () => {
             {/* Experience Section */}
             <section
               id="experience"
-              className="p-6 bg-gray-800 rounded-lg shadow-lg"
+              className="rounded-lg bg-slate-900 p-6 shadow-lg shadow-black/40"
             >
-              <h2 className="text-2xl font-bold text-white">Experience</h2>
+              <h2 className="text-2xl font-bold text-slate-50">Experience</h2>
+
+              {/* CarMax role */}
               <div className="mt-4">
-                <h3 className="text-xl font-semibold text-purple-400">
-                  Founder & Web Developer
+                <h3 className="text-xl font-semibold text-sky-300">
+                  State Inspection Technician &amp; Technician Production
+                  Manager (Cross-Trained)
                 </h3>
-                <p className="italic text-gray-400">
-                  TechTuned Web Design - June 2024 - Present
+                <p className="italic text-slate-400">
+                  CarMax &mdash; March 2007 &ndash; Present
                 </p>
-                <ul className="list-disc pl-5 text-gray-300">
+                <ul className="mt-2 list-disc pl-5 text-sm text-slate-200 md:text-base">
                   <li>
-                    Established and operate a freelance web development agency
-                    specializing in creating responsive, user-friendly websites.
+                    Lead and support a team of up to 18 technicians in a
+                    high-volume reconditioning operation, allocating work,
+                    monitoring progress, and aligning output with production
+                    targets and safety standards.
                   </li>
                   <li>
-                    Manage all phases of the web development lifecycle, from
-                    concept and design to implementation and optimization.
+                    Perform advanced diagnostics on electrical, drivability,
+                    network, and systems-level issues, focusing on root cause
+                    analysis and long-term reliability rather than quick fixes.
                   </li>
                   <li>
-                    Collaborate directly with clients to determine requirements
-                    and deliver measurable results.
+                    Provide business approvals for repairs and parts usage,
+                    balancing cost, risk, warranty impact, and customer
+                    experience in a Fortune 100 environment.
                   </li>
                   <li>
-                    Implement best practices in code quality, security, and SEO
-                    to enhance site performance and visibility.
+                    Collaborate daily with multiple departments (Sales,
+                    Service, Parts, Management) to resolve complex cases and
+                    remove operational bottlenecks.
+                  </li>
+                  <li>
+                    Train new associates and leaders on internal systems, shop
+                    workflows, and standard operating procedures to improve
+                    consistency and ramp-up speed.
                   </li>
                 </ul>
               </div>
-              <div className="mt-4">
-                <h3 className="text-xl font-semibold text-purple-400">
-                  State Inspection Technician & Cross-Trained Technician
-                  Production Manager
+
+              {/* Stretch assignment - can be part of CarMax but highlighted */}
+              <div className="mt-6">
+                <h3 className="text-xl font-semibold text-sky-300">
+                  Special Assignment &mdash; Labor Line &amp; Operations
+                  Analysis
                 </h3>
-                <p className="italic text-gray-400">
-                  CarMax - March 2007 - Present
+                <p className="italic text-slate-400">
+                  CarMax (Company-wide initiative) &mdash; 2025 &ndash; Present
                 </p>
-                <ul className="list-disc pl-5 text-gray-300">
+                <ul className="mt-2 list-disc pl-5 text-sm text-slate-200 md:text-base">
                   <li>
-                    Led a team of 18, maximizing efficiency by 30% and
-                    minimizing quality comebacks.
+                    Analyze repair labor line usage to identify overlapping,
+                    misapplied, or unclear labors that impact accuracy of
+                    billing, reporting, and policy compliance.
                   </li>
                   <li>
-                    Managed team workloads, monitored repair processes, and
-                    provided business approvals for repairs.
+                    Research patterns across data sets, validate findings with
+                    subject-matter experts, and document edge cases and
+                    exceptions.
                   </li>
                   <li>
-                    Engaged in daily collaboration with 5 diverse departments to
-                    address intricate challenges, ensuring alignment with both
-                    company and state standards and regulations within the
-                    dynamic environment of a Fortune 500 company.
+                    Summarize insights into clear recommendations and present
+                    findings to senior leaders as part of a broad cost-reduction
+                    and process-clarity initiative.
                   </li>
                   <li>
-                    Trained new associates, including upper management, on
-                    internal computer systems and daily business operations.
-                  </li>
-                  <li>
-                    Led complex investigations for intricate problems, staying
-                    updated on evolving technology and common failures.
+                    Partner with stakeholders to suggest clearer labor
+                    definitions and structures that support better reporting and
+                    decision making.
                   </li>
                 </ul>
               </div>
-              <div className="mt-4">
-                <h3 className="text-xl font-semibold text-purple-400">
-                  Web Developer
+
+              {/* Technical tools / project work */}
+              <div className="mt-6">
+                <h3 className="text-xl font-semibold text-sky-300">
+                  Technical Tools &amp; Internal-Style Apps (Self-Directed)
                 </h3>
-                <p className="italic text-gray-400">
-                  Freelance | Self - September 2018 - Present
+                <p className="italic text-slate-400">
+                  Personal Projects &amp; Prototypes &mdash; 2018 &ndash;
+                  Present
                 </p>
-                <ul className="list-disc pl-5 text-gray-300">
+                <ul className="mt-2 list-disc pl-5 text-sm text-slate-200 md:text-base">
                   <li>
-                    Developed various web solutions, including tools to manage
-                    repair orders and digital recipe storage apps.
+                    Design and build dashboards and utilities (e.g. technician
+                    labor trackers, asset trackers, efficiency dashboards) to
+                    visualize workload, asset status, and operational trends.
                   </li>
                   <li>
-                    Created secure and user-friendly web applications using
-                    React, TypeScript, and more.
+                    Use modern tools (React, Next.js, TypeScript, SQL/PostgreSQL,
+                    Node.js) to prototype internal-style systems that support
+                    decision making rather than marketing or client-facing
+                    design.
+                  </li>
+                  <li>
+                    Experiment with AI-assisted analysis and automation (e.g.
+                    VerifAI, AutoMate) to help classify content, forecast
+                    maintenance, or organize operational data.
                   </li>
                 </ul>
               </div>
@@ -354,80 +371,87 @@ const Resume: React.FC = () => {
             {/* Education Section */}
             <section
               id="education"
-              className="p-6 bg-gray-800 rounded-lg shadow-lg"
+              className="rounded-lg bg-slate-900 p-6 shadow-lg shadow-black/40"
             >
-              <h2 className="text-2xl font-bold text-white">Education</h2>
+              <h2 className="text-2xl font-bold text-slate-50">Education</h2>
               <div className="mt-4">
-                <h3 className="text-xl font-semibold text-purple-400">
+                <h3 className="text-xl font-semibold text-sky-300">
                   Carroll Community College
                 </h3>
-                <p className="italic text-gray-400">
-                  Computer Science (Continuous | In Progress) - February 2022 -
-                  Present
+                <p className="italic text-slate-400">
+                  A.S. Computer Science (In Progress) &mdash; February 2022
+                  &ndash; Present
                 </p>
-                <p className="text-gray-300">GPA: 4.0</p>
+                <p className="text-sm text-slate-200">GPA: 4.0</p>
               </div>
               <div className="mt-4">
-                <h3 className="text-xl font-semibold text-purple-400">
-                  Coursera - Google Cybersecurity Program
+                <h3 className="text-xl font-semibold text-sky-300">
+                  Coursera &mdash; Google Cybersecurity Professional Certificate
                 </h3>
-                <p className="italic text-gray-400">
-                  Cybersecurity Certificate Program - July 2023 - December 2023
+                <p className="italic text-slate-400">
+                  Cybersecurity Certificate Program &mdash; July 2023 &ndash;
+                  December 2023
                 </p>
               </div>
               <div className="mt-4">
-                <h3 className="text-xl font-semibold text-purple-400">
+                <h3 className="text-xl font-semibold text-sky-300">
                   FreeCodeCamp
                 </h3>
-                <p className="italic text-gray-400">
-                  Responsive Web Development and Programming - October 2016 -
-                  December 2021
+                <p className="italic text-slate-400">
+                  Responsive Web Development &amp; Programming &mdash; October
+                  2016 &ndash; December 2021
                 </p>
               </div>
               <div className="mt-4">
-                <h3 className="text-xl font-semibold text-purple-400">
+                <h3 className="text-xl font-semibold text-sky-300">
                   Anne Arundel Community College
                 </h3>
-                <p className="italic text-gray-400">
-                  Computer Science (Continuous | In Progress) - August 2016 -
-                  May 2018
+                <p className="italic text-slate-400">
+                  Computer Science &mdash; August 2016 &ndash; May 2018
                 </p>
-                <p className="text-gray-300">GPA: 3.8</p>
+                <p className="text-sm text-slate-200">GPA: 3.8</p>
               </div>
             </section>
 
             {/* Skills Section */}
             <section
               id="skills"
-              className="p-6 bg-gray-800 rounded-lg shadow-lg"
+              className="rounded-lg bg-slate-900 p-6 shadow-lg shadow-black/40"
             >
-              <h2 className="text-2xl font-bold text-white mb-4">Skills</h2>
-              <div className="text-gray-300 space-y-4">
+              <h2 className="mb-4 text-2xl font-bold text-slate-50">Skills</h2>
+              <div className="space-y-4 text-sm text-slate-200 md:text-base">
                 <div>
-                  <h3 className="text-lg font-semibold text-purple-400 mb-2">
-                    Front-End Development
+                  <h3 className="mb-1 text-lg font-semibold text-sky-300">
+                    Diagnostics &amp; Operations
                   </h3>
                   <p>
-                    HTML5, CSS3, JavaScript, React, Next.js, jQuery, Bootstrap,
-                    TailwindCSS, SASS, Responsive Design, UI/UX Design
+                    Systems diagnostics, root cause analysis, electrical and
+                    drivability troubleshooting, repair decision-making, labor
+                    usage review, operations &amp; workflow optimization,
+                    cross-functional collaboration, technical training and
+                    documentation.
                   </p>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-purple-400 mb-2">
-                    Back-End Development
+                  <h3 className="mb-1 text-lg font-semibold text-sky-300">
+                    Analysis &amp; Data Tools
                   </h3>
                   <p>
-                    Node.js, Express.js, SQL, PostgreSQL, Python, RESTful APIs,
-                    ArcGIS
+                    Data querying and reporting (SQL/PostgreSQL), trend
+                    analysis, dashboard and KPI visualization, Excel/Sheets,
+                    basic Python, exploratory analysis, translating operational
+                    questions into structured data problems.
                   </p>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-purple-400 mb-2">
-                    Tools & Workflow
+                  <h3 className="mb-1 text-lg font-semibold text-sky-300">
+                    Technical Platforms &amp; Development
                   </h3>
                   <p>
-                    Git, Gulp.js, Webpack, TypeScript, NPM, Linux, Netlify, SEO
-                    Best Practices
+                    React, Next.js, TypeScript, JavaScript, Node.js, Express,
+                    REST APIs, Prisma, Firebase, PostgreSQL, Git/GitHub, basic
+                    ArcGIS integration, Netlify, Vercel, responsive UI with
+                    Tailwind and CSS.
                   </p>
                 </div>
               </div>
@@ -436,104 +460,86 @@ const Resume: React.FC = () => {
             {/* Certifications Section */}
             <section
               id="certifications"
-              className="p-6 bg-gray-800 rounded-lg shadow-lg"
+              className="rounded-lg bg-slate-900 p-6 shadow-lg shadow-black/40"
             >
-              <h2 className="text-2xl font-bold text-white mb-4">
+              <h2 className="mb-4 text-2xl font-bold text-slate-50">
                 Certifications
               </h2>
-              <ul className="list-disc pl-5 text-gray-300 space-y-2">
-                <li>FreeCodeCamp - Responsive Web Development</li>
-                <li>Google Cybersecurity Professional Certificate</li>
+              <ul className="space-y-2 list-disc pl-5 text-sm text-slate-200 md:text-base">
                 <li>CompTIA Security+</li>
+                <li>Google Cybersecurity Professional Certificate</li>
+                <li>FreeCodeCamp &mdash; Responsive Web Development</li>
                 <li>
-                  TryHackMe - Pre Security | Introduction to Cybersecurity | SOC
-                  Level 1 | Cyber Defense
+                  TryHackMe &mdash; Pre Security, Introduction to Cybersecurity,
+                  SOC Level 1, Cyber Defense
                 </li>
               </ul>
             </section>
 
+            {/* Projects Section (curated, aligned with main site) */}
             <section
               id="projects"
-              className="p-6 bg-gray-800 rounded-lg shadow-lg"
+              className="rounded-lg bg-slate-900 p-6 shadow-lg shadow-black/40"
             >
-              <h2 className="text-2xl font-bold text-white mb-6">Projects</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {/* Project 1 */}
-                <div className="bg-gray-700 p-4 rounded-lg shadow-lg hover:scale-105 transform transition">
-                  <h4 className="text-xl font-semibold text-purple-400 mb-2">
-                    TechTuned Web Design
+              <h2 className="mb-6 text-2xl font-bold text-slate-50">
+                Selected Systems &amp; Analysis Projects
+              </h2>
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                {/* AutoMate */}
+                <div className="transform rounded-lg bg-slate-800 p-4 shadow-lg transition hover:scale-[1.01]">
+                  <h4 className="mb-2 text-xl font-semibold text-sky-300">
+                    AutoMate &mdash; Vehicle Maintenance Tracker
                   </h4>
                   <a
-                    href="https://techtunedwebdesign.com"
+                    href="https://automatenance.vercel.app/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <Image
-                      src="/images/TechTuned.png"
-                      alt="Image of TechTuned Web Design Website"
+                      src="/images/AutoMate.png"
+                      alt="AutoMate web application"
                       width={300}
                       height={200}
                       className="rounded-lg shadow-md hover:opacity-90 transition"
                     />
                   </a>
-                  <p className="text-gray-300 mt-2">
-                    A website for my Web Design agency.
+                  <p className="mt-2 text-sm text-slate-200">
+                    A system that consolidates vehicle service history and
+                    upcoming maintenance into a clear, timeline-based view,
+                    helping users see what has been done, what is due, and how
+                    their decisions affect long-term reliability.
                   </p>
                 </div>
 
-                {/* Project 2 */}
-                <div className="bg-gray-700 p-4 rounded-lg shadow-lg hover:scale-105 transform transition">
-                  <h4 className="text-xl font-semibold text-purple-400 mb-2">
-                    Cook-E | Online Recipe Book
+                {/* TechMetrix */}
+                <div className="transform rounded-lg bg-slate-800 p-4 shadow-lg transition hover:scale-[1.01]">
+                  <h4 className="mb-2 text-xl font-semibold text-sky-300">
+                    TechMetrix &mdash; Technician Efficiency Dashboard
                   </h4>
                   <a
-                    href="https://github.com/jwsummers/Cook-E"
+                    href="https://techmetrix.vercel.app/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <Image
-                      src="/images/cookE.png"
-                      alt="Image of Cook-E web application"
+                      src="/images/TechMetrix.png"
+                      alt="TechMetrix dashboard"
                       width={300}
                       height={200}
                       className="rounded-lg shadow-md hover:opacity-90 transition"
                     />
                   </a>
-                  <p className="text-gray-300 mt-2">
-                    A web application featuring secure authentication/login
-                    allowing saving and viewing of recipes in a personal online
-                    recipe book.
+                  <p className="mt-2 text-sm text-slate-200">
+                    A dashboard concept to visualize repair orders, workload,
+                    and efficiency for an automotive team, helping leaders see
+                    patterns in throughput, rework, and team performance.
                   </p>
                 </div>
 
-                {/* Project 3 */}
-                <div className="bg-gray-700 p-4 rounded-lg shadow-lg hover:scale-105 transform transition">
-                  <h4 className="text-xl font-semibold text-purple-400 mb-2">
-                    T.R.E.D.
-                  </h4>
-                  <a
-                    href="https://tred.netlify.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Image
-                      src="/images/tred.png"
-                      alt="Image of T.R.E.D web application"
-                      width={300}
-                      height={200}
-                      className="rounded-lg shadow-md hover:opacity-90 transition"
-                    />
-                  </a>
-                  <p className="text-gray-300 mt-2">
-                    A web application tool used to compare tire sizes to test
-                    for adherence to company standards.
-                  </p>
-                </div>
-
-                {/* Project 4 */}
-                <div className="bg-gray-700 p-4 rounded-lg shadow-lg hover:scale-105 transform transition">
-                  <h4 className="text-xl font-semibold text-purple-400 mb-2">
-                    Labor Tracker
+                {/* Labor Tracker */}
+                <div className="transform rounded-lg bg-slate-800 p-4 shadow-lg transition hover:scale-[1.01]">
+                  <h4 className="mb-2 text-xl font-semibold text-sky-300">
+                    Labor Tracker &mdash; RO &amp; Commission Tool
                   </h4>
                   <a
                     href="https://labortracker.netlify.app/"
@@ -542,45 +548,47 @@ const Resume: React.FC = () => {
                   >
                     <Image
                       src="/images/laborTracker.png"
-                      alt="Image of Labor Tracker web application"
+                      alt="Labor Tracker web application"
                       width={300}
                       height={200}
                       className="rounded-lg shadow-md hover:opacity-90 transition"
                     />
                   </a>
-                  <p className="text-gray-300 mt-2">
-                    A web application to monitor repair order history, labor
-                    hours, and efficiency.
+                  <p className="mt-2 text-sm text-slate-200">
+                    A tool for technicians to log repair orders, track hours and
+                    flagged labor, and review weekly totals to better understand
+                    efficiency and payout patterns.
                   </p>
                 </div>
 
-                {/* Project 5 */}
-                <div className="bg-gray-700 p-4 rounded-lg shadow-lg hover:scale-105 transform transition">
-                  <h4 className="text-xl font-semibold text-purple-400 mb-2">
-                    M.A.C.E
+                {/* T.R.E.D. */}
+                <div className="transform rounded-lg bg-slate-800 p-4 shadow-lg transition hover:scale-[1.01]">
+                  <h4 className="mb-2 text-xl font-semibold text-sky-300">
+                    T.R.E.D. &mdash; Tire Replacement Evaluation
                   </h4>
                   <a
-                    href="https://myautocareexpert.com"
+                    href="https://tred.netlify.app/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <Image
-                      src="/images/mech.jpg"
-                      alt="Image of mobile mechanic website"
+                      src="/images/tred.png"
+                      alt="T.R.E.D. web application"
                       width={300}
                       height={200}
                       className="rounded-lg shadow-md hover:opacity-90 transition"
                     />
                   </a>
-                  <p className="text-gray-300 mt-2">
-                    A website for a mobile mechanic business to improve customer
-                    reach, SEO, and provide contact and appointment scheduling.
+                  <p className="mt-2 text-sm text-slate-200">
+                    A decision-support tool that encodes tire size rules into a
+                    quick check, reducing fitment errors and policy violations
+                    by turning guidelines into a consistent workflow.
                   </p>
                 </div>
 
-                {/* Project 6 */}
-                <div className="bg-gray-700 p-4 rounded-lg shadow-lg hover:scale-105 transform transition">
-                  <h4 className="text-xl font-semibold text-purple-400 mb-2">
+                {/* Smart Asset Tracker */}
+                <div className="transform rounded-lg bg-slate-800 p-4 shadow-lg transition hover:scale-[1.01]">
+                  <h4 className="mb-2 text-xl font-semibold text-sky-300">
                     Smart Asset Tracker
                   </h4>
                   <a
@@ -590,98 +598,80 @@ const Resume: React.FC = () => {
                   >
                     <Image
                       src="/images/S.A.T..png"
-                      alt="Image of mobile mechanic website"
+                      alt="Smart Asset Tracker"
                       width={300}
                       height={200}
                       className="rounded-lg shadow-md hover:opacity-90 transition"
                     />
                   </a>
-                  <p className="text-gray-300 mt-2">
-                    A website for a mobile mechanic business to improve customer
-                    reach, SEO, and provide contact and appointment scheduling.
+                  <p className="mt-2 text-sm text-slate-200">
+                    A prototype for tracking company assets, status, and
+                    locations, combining a structured asset registry with
+                    mapping to support audits, loss prevention, and lifecycle
+                    planning.
+                  </p>
+                </div>
+
+                {/* VerifAI */}
+                <div className="transform rounded-lg bg-slate-800 p-4 shadow-lg transition hover:scale-[1.01]">
+                  <h4 className="mb-2 text-xl font-semibold text-sky-300">
+                    VerifAI &mdash; Content Authenticity Check
+                  </h4>
+                  <a
+                    href="https://verifai-scan.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Image
+                      src="/images/VerifAI.png"
+                      alt="VerifAI web application"
+                      width={300}
+                      height={200}
+                      className="rounded-lg shadow-md hover:opacity-90 transition"
+                    />
+                  </a>
+                  <p className="mt-2 text-sm text-slate-200">
+                    An AI-assisted tool that estimates the likelihood of content
+                    being AI-generated or manipulated, framed as a signal that
+                    can support moderation, quality checks, or due diligence.
                   </p>
                 </div>
               </div>
             </section>
-            <section
-              id="blogs"
-              className="p-6 bg-gray-800 rounded-lg shadow-lg"
-            >
-              <h2 className="text-2xl font-bold text-white mb-6">Blog Posts</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {/* Blog Post 1 */}
-                <div className="bg-gray-700 p-4 rounded-lg shadow-lg hover:scale-105 transform transition">
-                  <h4 className="text-xl font-semibold text-purple-400 mb-2">
-                    AI Overlord Chronicles
-                  </h4>
-                  <a
-                    href="https://medium.com/@jwsummers.dev/ai-overlord-chronicles-a-funyet-stern-warning-4b500434c8a2"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Image
-                      src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*QDj6QBotIBQGGsSlyS_HKw.jpeg"
-                      alt="AI Overlord Chronicles"
-                      width={300}
-                      height={200}
-                      className="rounded-lg shadow-md hover:opacity-90 transition"
-                    />
-                  </a>
-                </div>
 
-                {/* Blog Post 2 */}
-                <div className="bg-gray-700 p-4 rounded-lg shadow-lg hover:scale-105 transform transition">
-                  <h4 className="text-xl font-semibold text-purple-400 mb-2">
-                    From Tech to Tech
-                  </h4>
-                  <a
-                    href="https://medium.com/@jwsummers.dev/from-tech-to-tech-my-journey-from-automotive-technician-to-cybersecurity-aspirant-a-reflection-000b00a53118"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Image
-                      src="https://miro.medium.com/v2/resize:fit:914/format:webp/1*tIeFc1zd5cqyCBLXiy5eow@2x.jpeg"
-                      alt="From Tech to Tech"
-                      width={300}
-                      height={200}
-                      className="rounded-lg shadow-md hover:opacity-90 transition"
-                    />
-                  </a>
-                </div>
-              </div>
-            </section>
-
+            {/* Interests */}
             <section
               id="interests"
-              className="p-6 bg-gray-800 rounded-lg shadow-lg"
+              className="rounded-lg bg-slate-900 p-6 shadow-lg shadow-black/40"
             >
-              <h2 className="text-2xl font-bold text-white mb-6">Interests</h2>
-              <div className="flex justify-center mb-6">
+              <h2 className="mb-6 text-2xl font-bold text-slate-50">
+                Interests
+              </h2>
+              <div className="mb-6 flex justify-center">
                 <Image
                   src="/images/interest.jpg"
                   alt="Hiking Image"
                   width={300}
                   height={200}
-                  className="rounded-lg shadow-md hover:opacity-90 transition"
+                  className="rounded-lg shadow-md transition hover:opacity-90"
                 />
               </div>
-              <p className="text-gray-300 mb-4">
-                When I&apos;m not working on projects, learning, or keeping up
-                to date on tech news and the latest trends, I enjoy
-                disconnecting and being outside with my family. I live in a
-                rural area and take pleasure in working in the yard, gardening,
-                and caring for our chickens.
+              <p className="mb-4 text-sm text-slate-200 md:text-base">
+                Outside of work and learning, I live in a rural area and enjoy
+                being outdoors with my family, working in the yard, gardening,
+                and taking care of our chickens. It&apos;s a good balance to the
+                analytical and technical work I do day to day.
               </p>
-              <p className="text-gray-300">
-                When forced indoors, I relish quality family time, watching TV,
-                movies, and playing video games. I also like to stay involved
-                with the tech communities and engage with others on Discord and
-                LinkedIn.
+              <p className="text-sm text-slate-200 md:text-base">
+                When I&apos;m indoors, I spend time with my family, read,
+                watch movies, play games, and stay connected with tech and
+                engineering communities on Discord and LinkedIn.
               </p>
             </section>
           </main>
         </div>
       </div>
+
       <Footer />
     </>
   );
