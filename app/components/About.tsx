@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import GitHubCalendar from 'react-github-calendar';
-import { FaLinkedin, FaFacebook, FaXTwitter } from 'react-icons/fa6';
+import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa6';
 
 const explicitTheme = {
   light: ['#E5E5E5', '#C7D2FE', '#A5B4FC', '#818CF8', '#6366F1'],
@@ -62,22 +62,22 @@ const About: React.FC = () => {
               <FaLinkedin size={26} />
             </a>
             <a
-              href="https://facebook.com/techtunedwebdesign"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition hover:text-sky-400"
-              aria-label="Facebook"
-            >
-              <FaFacebook size={26} />
-            </a>
+                            href="https://github.com/jwsummers"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-slate-300 transition hover:text-sky-300"
+                            aria-label="GitHub"
+                          >
+                            <FaGithub size={30} />
+                          </a>
             <a
-              href="https://twitter.com/TechTuned"
+              href="mailto:hello@jasonwsummers.com"
               target="_blank"
               rel="noopener noreferrer"
               className="transition hover:text-sky-400"
-              aria-label="Twitter / X"
+              aria-label="Email"
             >
-              <FaXTwitter size={26} />
+              <FaEnvelope size={26} />
             </a>
           </div>
         </div>
@@ -92,9 +92,10 @@ const About: React.FC = () => {
             viewport={{ once: true }}
           >
             <span className="font-semibold text-sky-300">Hey, I&apos;m Jason.</span>{' '}
-            I&apos;ve spent over 20 years diagnosing complex automotive systems—electrical,
-            drivability, network, and control modules—while leading technicians and making tough
-            repair decisions in a high-volume environment.
+            I&apos;ve spent over 20 years in the automotive industry diagnosing complex problems,
+            coaching technicians, and making data-informed repair decisions in a high-volume
+            environment. I&apos;ve always been drawn to understanding patterns, causes, and the
+            story behind the numbers.
           </motion.p>
 
           <motion.p
@@ -104,9 +105,10 @@ const About: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            As a Technician Production Manager, I oversee a team of technicians, approve
-            repairs, and manage workload and throughput. I collaborate closely with leaders,
-            advisors, and other departments to balance cost, quality, and cycle time.
+            As a Technician Production Manager, I oversee a team of technicians, approve repairs,
+            and manage workload and throughput. I collaborate with leaders, advisors, and other
+            departments to balance cost, quality, and cycle time, constantly looking for trends and
+            opportunities to improve how the operation runs.
           </motion.p>
 
           <motion.p
@@ -116,11 +118,11 @@ const About: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            I&apos;m part of a company-wide stretch assignment analyzing labor line usage:
+            I&apos;m currently part of a company-wide stretch assignment analyzing labor line usage:
             identifying overlapping and misapplied labors, researching trends, and presenting
-            findings to senior management as part of a major cost-reduction and process-clarity
-            initiative. It&apos;s where my diagnostic mindset, attention to detail, and comfort with
-            data really intersect.
+            findings to senior management as part of a cost-reduction and process-clarity
+            initiative. It&apos;s where my diagnostic mindset, attention to detail, and comfort
+            working directly with data all intersect.
           </motion.p>
 
           <motion.p
@@ -130,11 +132,11 @@ const About: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            Over the past several years, I&apos;ve also taught myself modern development tools
-            (React, JavaScript/TypeScript, SQL, Node.js) and built internal-style dashboards and
-            workflow applications. I don&apos;t position myself as a freelance web designer—instead,
-            I use these tools to prototype systems, visualize operations, and support better
-            decisions as a technical / diagnostic / operations analyst.
+            Over the past several years, I&apos;ve also taught myself modern development and
+            analytics tools (SQL, Excel, Python, Power BI, React, Node.js) and built internal-style
+            dashboards, prototypes, and workflow applications. I don&apos;t position myself as a
+            freelance web designer, instead I use these tools to explore data, visualize operations,
+            and support better decision making as a data and operations-focused analyst.
           </motion.p>
 
           <motion.p
@@ -144,29 +146,24 @@ const About: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            I&apos;m actively pursuing roles such as Technical Systems Analyst, Diagnostic / Connected
-            Vehicle Analyst, or Operations Analyst—positions where deep diagnostics, systems
-            thinking, and data-informed decision making are core to the work.{' '}
-            <a
-              href="/resume"
-              className="text-sky-300 underline underline-offset-2 hover:text-sky-200 transition"
-            >
-              View my resume
-            </a>{' '}
-            or connect with me on{' '}
+            I&apos;m actively pursuing roles such as Data Analyst, Operations Analyst, or
+            Operations-focused Business Analyst positions where root cause analysis, operational
+            insight, and clear communication are central to the work.{' '}
+             Connect with me on{' '}
             <a
               href="https://www.linkedin.com/in/jason-w-summers/"
-              target='blank'
+              target="blank"
               className="text-sky-300 underline underline-offset-2 hover:text-sky-200 transition"
             >
               LinkedIn
-            </a>{' '} if you&apos;d like to talk.
+            </a>{' '}
+            if you&apos;d like to talk.
           </motion.p>
 
           {/* Skills / Focus Areas */}
           <div className="mt-6 flex flex-wrap gap-3">
             <span className="rounded-xl border border-slate-600 bg-slate-900 px-4 py-1 text-xs font-semibold text-slate-100">
-              Systems diagnostics &amp; root cause analysis
+              Root cause &amp; trend analysis
             </span>
             <span className="rounded-xl border border-slate-600 bg-slate-900 px-4 py-1 text-xs font-semibold text-slate-100">
               Labor line &amp; cost analysis
@@ -175,19 +172,19 @@ const About: React.FC = () => {
               Operations &amp; workflow optimization
             </span>
             <span className="rounded-xl border border-slate-600 bg-slate-900 px-4 py-1 text-xs font-semibold text-slate-100">
-              SQL &amp; relational data
+              SQL, Excel &amp; relational data
             </span>
             <span className="rounded-xl border border-slate-600 bg-slate-900 px-4 py-1 text-xs font-semibold text-slate-100">
-              Dashboards &amp; reporting
+              Dashboards &amp; reporting (Power BI)
             </span>
             <span className="rounded-xl border border-slate-600 bg-slate-900 px-4 py-1 text-xs font-semibold text-slate-100">
-              React-based internal tools
+              Prototyping internal tools (React)
             </span>
             <span className="rounded-xl border border-slate-600 bg-slate-900 px-4 py-1 text-xs font-semibold text-slate-100">
               Cross-functional communication
             </span>
             <span className="rounded-xl border border-slate-600 bg-slate-900 px-4 py-1 text-xs font-semibold text-slate-100">
-              Technical documentation
+              Technical documentation &amp; clarity
             </span>
           </div>
         </div>
@@ -202,10 +199,10 @@ const About: React.FC = () => {
         viewport={{ once: true }}
       >
         <h3 className="mb-3 text-center text-2xl font-semibold text-slate-50">
-          Technical Tools &amp; Coding Activity
+          Analytics &amp; Coding Activity
         </h3>
         <p className="mb-4 text-center text-sm text-slate-300 md:text-base">
-          I regularly use modern development tools to build internal-style prototypes, dashboards,
+          I regularly use modern analytics and development tools to build prototypes, dashboards,
           and automations that support analysis and decision making. Here&apos;s a snapshot of my
           recent GitHub activity:
         </p>

@@ -8,31 +8,45 @@ import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 // Format skill names for display
 const formatSkillName = (slug: string) => {
   const formatted: { [key: string]: string } = {
-    nodedotjs: 'Node.js',
-    nextdotjs: 'Next.js',
-    tailwindcss: 'Tailwind',
-    typescript: 'TypeScript',
-    javascript: 'JavaScript',
-    postgresql: 'PostgreSQL',
-    vercel: 'Vercel',
-    github: 'GitHub',
-    git: 'Git',
-    netlify: 'Netlify',
-    css3: 'CSS3',
-    html5: 'HTML5',
-    sass: 'Sass',
-    bootstrap: 'Bootstrap',
-    jest: 'Jest',
-    prisma: 'Prisma',
-    firebase: 'Firebase',
-    react: 'React',
-    express: 'Express',
-  };
+  nodedotjs: "Node.js",
+  nextdotjs: "Next.js",
+  tailwindcss: "Tailwind",
+  typescript: "TypeScript",
+  javascript: "JavaScript",
+  postgresql: "PostgreSQL",
+  vercel: "Vercel",
+  github: "GitHub",
+  git: "Git",
+  netlify: "Netlify",
+  html5: "HTML5",
+  sass: "Sass",
+  bootstrap: "Bootstrap",
+  jest: "Jest",
+  prisma: "Prisma",
+  firebase: "Firebase",
+  react: "React",
+  express: "Express",
+};
+
   return formatted[slug] || slug.charAt(0).toUpperCase() + slug.slice(1);
 };
 
-// Curated projects aligned with diagnostics / systems / ops / analysis
+// Curated projects aligned with analytics / diagnostics / ops / systems
 const projects = [
+  {
+    title: 'Operational Labor Overcharge Analysis',
+    description:
+      'An end-to-end analytics project using mock repair-order data to identify labor overcharges, overlapping labor, and operational risk. Built with Excel, SQL, Python, and Power BI to mirror the cost-reduction and labor-line auditing work I do in my stretch analyst role.',
+    image: '/images/Ops_Labor_Dashboard.png',
+    link: 'https://github.com/jwsummers/ops-labor-analysis',
+    live: null,
+    skills: [
+      'postgresql',
+      'python',
+      'github',
+      'git',
+    ],
+  },
   {
     title: 'AutoMate',
     description:
@@ -79,7 +93,7 @@ const projects = [
     image: '/images/laborTracker.png',
     link: 'https://github.com/jwsummers/Labor-Tracker',
     live: 'https://labortracker.netlify.app/',
-    skills: ['html5', 'css3', 'netlify', 'github', 'git', 'jest'],
+    skills: ['html5', 'netlify', 'github', 'git', 'jest'],
   },
   {
     title: 'T.R.E.D.',
@@ -88,7 +102,7 @@ const projects = [
     image: '/images/tred.png',
     link: 'https://github.com/jwsummers/TRED',
     live: 'https://tred.netlify.app/',
-    skills: ['html5', 'css3', 'netlify', 'github', 'git'],
+    skills: ['html5', 'netlify', 'github', 'git'],
   },
   {
     title: 'Smart Asset Tracker',
@@ -145,7 +159,7 @@ export default function Projects() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: 'easeOut' }}
         >
-          Systems &amp; Analysis Projects
+          Analytics &amp; Operations Projects
         </motion.h2>
 
         <motion.p
@@ -154,9 +168,9 @@ export default function Projects() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
         >
-          Selected work where I combined my diagnostic mindset with modern tools to analyze systems,
-          track operations, and support better decisions. These projects reflect how I think about
-          data, workflows, and real-world constraints—not just how I write code.
+          Selected work where I combine my diagnostic mindset with modern analytics tools to
+          analyze systems, track operations, and support better decisions. These projects reflect
+          how I think about data, workflows, and real-world constraints—not just how I write code.
         </motion.p>
 
         {/* Projects Grid */}

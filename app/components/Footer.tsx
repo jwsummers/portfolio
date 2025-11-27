@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { FaLinkedin, FaGithub, FaXTwitter } from 'react-icons/fa6'; // v6 for consistent icon sizing
+import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa6'; // v6 for consistent icon sizing
 
 const Footer: React.FC = () => {
   return (
@@ -29,13 +29,13 @@ const Footer: React.FC = () => {
             <FaGithub size={28} />
           </a>
           <a
-            href='https://twitter.com/JWSummers_dev'
+            href="mailto:hello@jasonwsummers.com"
             target='_blank'
             rel='noopener noreferrer'
             className='text-[#f906c7] hover:text-[#01fff0] neon-footer transition-all duration-200'
-            aria-label='Twitter'
+            aria-label='Email'
           >
-            <FaXTwitter size={28} />
+            <FaEnvelope size={28} />
           </a>
         </div>
         <p className='text-sm text-white/80 tracking-widest font-semibold'>

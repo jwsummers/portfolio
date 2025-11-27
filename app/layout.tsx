@@ -5,9 +5,9 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Jason Summers | Technical Systems & Diagnostic Analyst',
+  title: 'Jason Summers | Data & Operations Analyst',
   description:
-    'Technical Systems & Diagnostic Analyst with 20+ years in automotive diagnostics, operations leadership, and data-informed decision making.',
+    'Data & Operations Analyst with 20+ years in automotive diagnostics, operations leadership, and data-informed decision making.',
   icons: {
     icon: '/favicon.ico',
   },

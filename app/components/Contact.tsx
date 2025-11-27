@@ -81,9 +81,8 @@ export default function Contact() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.7 }}
         >
-          If you&apos;re hiring for Technical Systems, Diagnostic, Operations, or
-          Connected Vehicle Analyst roles—or you&apos;re interested in the kind of
-          internal tools and dashboards I build—feel free to reach out. You can
+          If you&apos;re hiring for Data, Operational, or Business Analyst roles or you&apos;re interested in the kind of
+          internal tools and dashboards I build, feel free to reach out. You can
           use the form below or contact me directly by email or LinkedIn.
         </motion.p>
 
@@ -203,15 +202,6 @@ export default function Contact() {
                 aria-label="GitHub"
               >
                 <FaGithub size={30} />
-              </a>
-              <a
-                href="https://twitter.com/JWSummers_dev"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-slate-300 transition hover:text-sky-300"
-                aria-label="Twitter / X"
-              >
-                <FaXTwitter size={30} />
               </a>
             </div>
 

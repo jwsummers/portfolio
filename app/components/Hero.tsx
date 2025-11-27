@@ -43,11 +43,12 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.6 }}
           className="mb-4"
         >
-          <span className="inline-block rounded-full border border-sky-500/40 
+          <span
+            className="inline-block rounded-full border border-sky-500/40 
             bg-sky-950/40 px-4 py-1 text-sm font-semibold uppercase 
             tracking-[0.18em] text-sky-300"
           >
-            Technical Systems &amp; Diagnostic Analyst
+            Data &amp; Operations Analyst
           </span>
         </motion.div>
 
@@ -57,10 +58,10 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.8 }}
           className="mb-6 text-base text-slate-200 md:text-lg"
         >
-          I specialize in understanding how complex systems behave in the real world—vehicles,
-          workflows, data, and tools. After 20+ years diagnosing automotive systems and leading
-          technicians, I now focus on analyzing operations, uncovering root causes, and turning
-          noisy performance data into clear, actionable decisions.
+          I specialize in understanding how operations behave in real world, workflows, 
+          performance, and costs. After 20+ years diagnosing automotive issues and leading 
+          technicians, I now focus on analyzing operational data, finding root causes, and 
+          turning noisy metrics into clear, actionable insights.
         </motion.p>
 
         <motion.p
@@ -69,10 +70,10 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.9 }}
           className="mb-8 text-sm text-slate-300 md:text-base"
         >
-          I&apos;m pursuing roles where deep diagnostics, systems thinking, and operational insights
-          matter — Technical Systems Analyst, Diagnostic / Connected Vehicle Analyst, and
-          Operations Analyst. I bridge real-world technical experience with SQL, dashboards,
-          and internal applications.
+          I&apos;m pursuing Data Analyst and Operations Analyst roles where deep diagnostics, 
+          process improvement, and practical decision support matter. I bridge hands-on 
+          operations experience with SQL, Excel, Python, and dashboards to help teams 
+          understand what&apos;s really happening in their data.
         </motion.p>
 
         {/* Pillars */}
@@ -83,13 +84,13 @@ export default function Hero() {
           className="mb-8 flex flex-wrap justify-center gap-3"
         >
           <span className="rounded-full border border-slate-700 bg-slate-900/80 px-3 py-1 text-xs font-medium text-slate-200">
-            Systems diagnostics & root cause investigation
+            Root cause investigation & operational diagnostics
           </span>
           <span className="rounded-full border border-slate-700 bg-slate-900/80 px-3 py-1 text-xs font-medium text-slate-200">
-            Operations analysis
+            Data &amp; operations analysis
           </span>
           <span className="rounded-full border border-slate-700 bg-slate-900/80 px-3 py-1 text-xs font-medium text-slate-200">
-            SQL, dashboards & internal tools
+            SQL, Excel, Python &amp; dashboards
           </span>
         </motion.div>
 
@@ -114,7 +115,7 @@ export default function Hero() {
               text-sm font-semibold text-slate-50 shadow-md transition 
               hover:border-sky-400 hover:text-sky-200 hover:-translate-y-0.5"
           >
-            See Systems Projects
+            See Analytics Projects
           </Link>
         </motion.div>
 
