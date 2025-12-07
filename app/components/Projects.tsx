@@ -48,6 +48,21 @@ const projects = [
     ],
   },
   {
+  title: 'Mobile Mechanic Operations Performance Analysis',
+  description:
+    'An end-to-end operations analytics project analyzing profitability, service mix, customer retention, and mobile travel cost impact for a single-technician mobile mechanic business. Built with SQL, Python, and Tableau to simulate real-world small business operations analysis.',
+  image: '/images/mobile_mechanic_dashboard.png',
+  link: 'https://github.com/jwsummers/mobile_mechanic_ops_analysis',
+  live: 'https://public.tableau.com/app/profile/jason.summers2480/viz/MobileMechanicOperationsAnalysis/MobileMechanicOperationsDashboard?publish=yes',
+  skills: [
+    'postgresql',
+    'python',
+    'tableau',
+    'github',
+    'git',
+  ],
+},
+  {
     title: 'AutoMate',
     description:
       'A vehicle maintenance and repair-tracking system that consolidates service history, upcoming work, and predictive reminders. Designed to give users a clear view of what has been done, what is due next, and how maintenance decisions impact long-term reliability.',

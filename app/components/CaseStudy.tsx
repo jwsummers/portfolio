@@ -57,6 +57,41 @@ const caseStudies: CaseStudy[] = [
     //   href: 'https://...'
     // },
   },
+  {
+  title: 'Mobile Mechanic Operations Performance Analysis',
+  role: 'Business & Operations Data Analyst (Portfolio Case Study)',
+  timeframe: 'Modeled on 12 months of mobile repair operations',
+  context:
+    'End-to-end business analytics project simulating the real-world performance of a single-technician mobile mechanic operating in Maricopa County, AZ. Built using mock data to reflect pricing strategy, service mix, customer retention, and the operational impact of mobile travel.',
+  problem:
+    'The business needed clear visibility into which services were most profitable, how repeat customers impacted revenue, whether mobile travel distance reduced profit margins, and how monthly demand patterns affected business stability.',
+  approach: [
+    'Modeled a full 12-month dataset (320 repair orders) including labor hours, labor revenue, parts cost, parts markup, travel distance, travel cost, and total profit.',
+    'Loaded and analyzed the data in PostgreSQL, writing KPI-driven SQL queries to evaluate service profitability, customer lifetime value, monthly trends, and mobile efficiency.',
+    'Used Python (Pandas) for exploratory data analysis to validate distributions, profit margin variability, travel vs profit relationships, and revenue consistency.',
+    'Designed a Tableau executive dashboard featuring KPI cards, monthly revenue & profit trends, top services by profit, customer retention breakdowns, and travel efficiency visualizations.',
+    'Structured the project using a professional multi-tool analytics workflow: CSV → SQL → Python → Tableau.',
+  ],
+  outcomes: [
+    'Identified diagnostics and A/C compressor replacement as the highest-margin services in the business.',
+    'Confirmed that repeat customers generated the majority of total revenue and profit.',
+    'Found that long-distance jobs (11–15 miles) produced higher average profit due to larger repair scope, while mid-range travel (6–10 miles) showed weaker margin efficiency.',
+    'Determined that premium vehicle brands did not consistently outperform standard brands in average profitability.',
+    'Produced an executive-ready interactive Tableau dashboard that supports pricing, service focus, and retention strategy decisions.',
+  ],
+  tools: [
+    'PostgreSQL & SQL (KPI design, aggregations, business logic)',
+    'Python (Pandas, EDA, validation)',
+    'Tableau (interactive executive dashboard)',
+    'Git & GitHub (version control, documentation)',
+  ],
+  repo: 'https://github.com/jwsummers/mobile_mechanic_ops_analysis',
+  extraLink: {
+    label: 'View Interactive Dashboard (Tableau Public)',
+    href: 'https://public.tableau.com/app/profile/jason.summers2480/viz/MobileMechanicOperationsAnalysis/MobileMechanicOperationsDashboard?publish=yes',
+  },
+},
+
 ];
 
 export default function CaseStudies() {
