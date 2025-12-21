@@ -92,10 +92,7 @@ const About: React.FC = () => {
             viewport={{ once: true }}
           >
             <span className="font-semibold text-sky-300">Hey, I&apos;m Jason.</span>{' '}
-            I&apos;ve spent over 20 years in the automotive industry diagnosing complex problems,
-            coaching technicians, and making data-informed repair decisions in a high-volume
-            environment. I&apos;ve always been drawn to understanding patterns, causes, and the
-            story behind the numbers.
+            I&apos;m an automotive operations and technical analyst with 20+ years of experience diagnosing complex problems, coaching technicians, and supporting repair decisions in high-volume service environments. Throughout my career, I&apos;ve been drawn to understanding patterns, identifying root causes, and making sense of operational data behind real-world decisions.
           </motion.p>
 
           <motion.p
@@ -105,10 +102,7 @@ const About: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            As a Technician Production Manager, I oversee a team of technicians, approve repairs,
-            and manage workload and throughput. I collaborate with leaders, advisors, and other
-            departments to balance cost, quality, and cycle time, constantly looking for trends and
-            opportunities to improve how the operation runs.
+            As a Technician Production Manager, I oversee technician workflow, approve repairs, and manage throughput while balancing cost, quality, and cycle time. I work closely with service advisors, operations leaders, and cross-functional teams to ensure repairs are appropriate, well-documented, and aligned with operational standards, while continuously looking for trends and opportunities to improve how the operation runs.
           </motion.p>
 
           <motion.p
@@ -118,11 +112,7 @@ const About: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            I&apos;m currently part of a company-wide stretch assignment analyzing labor line usage:
-            identifying overlapping and misapplied labors, researching trends, and presenting
-            findings to senior management as part of a cost-reduction and process-clarity
-            initiative. It&apos;s where my diagnostic mindset, attention to detail, and comfort
-            working directly with data all intersect.
+            I&apos;m currently part of a company-wide operational analysis initiative focused on labor usage and repair consistency. In this role, I review large volumes of repair order data to identify overlapping or misapplied labor, investigate trends, and present findings to senior leadership as part of a cost-reduction and process-clarity effort. This work sits at the intersection of technical judgment, attention to detail, and structured analysis.
           </motion.p>
 
           <motion.p
@@ -132,11 +122,7 @@ const About: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            Over the past several years, I&apos;ve also taught myself modern development and
-            analytics tools (SQL, Excel, Python, Power BI, React, Node.js) and built internal-style
-            dashboards, prototypes, and workflow applications. I don&apos;t position myself as a
-            freelance web designer, instead I use these tools to explore data, visualize operations,
-            and support better decision making as a data and operations-focused analyst.
+            Over the past several years, I&apos;ve expanded my analytical toolkit to support this work, using Excel, SQL, Python, and BI tools to explore data, build dashboards, and translate operational complexity into clear, actionable insight. I use technology as a decision-support layer, not as an end in itself, grounded in practical service and operations experience.
           </motion.p>
 
           <motion.p
@@ -146,10 +132,7 @@ const About: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            I&apos;m actively pursuing roles such as Data Analyst, Operations Analyst, or
-            Operations-focused Business Analyst positions where root cause analysis, operational
-            insight, and clear communication are central to the work.{' '}
-             Connect with me on{' '}
+            I&apos;m most effective in behind-the-scenes, collaborative roles where analytical thinking, technical understanding, and clear communication help organizations make better operational decisions.{' '}Connect with me on{' '}
             <a
               href="https://www.linkedin.com/in/jason-w-summers/"
               target="blank"

@@ -48,7 +48,7 @@ export default function Hero() {
             bg-sky-950/40 px-4 py-1 text-sm font-semibold uppercase 
             tracking-[0.18em] text-sky-300"
           >
-            Data &amp; Operations Analyst
+            Automotive Operations &amp; Technical Analyst
           </span>
         </motion.div>
 
@@ -58,10 +58,7 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.8 }}
           className="mb-6 text-base text-slate-200 md:text-lg"
         >
-          I specialize in understanding how operations behave in real world, workflows, 
-          performance, and costs. After 20+ years diagnosing automotive issues and leading 
-          technicians, I now focus on analyzing operational data, finding root causes, and 
-          turning noisy metrics into clear, actionable insights.
+          I specialize in understanding how automotive operations behave in the real world — across workflows, performance, repair decisions, and cost. With 20+ years diagnosing complex vehicle issues and leading technicians, I now focus on analyzing operational data, identifying root causes, and turning noisy metrics into clear, actionable insight.
         </motion.p>
 
         <motion.p
@@ -70,10 +67,7 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.9 }}
           className="mb-8 text-sm text-slate-300 md:text-base"
         >
-          I&apos;m pursuing Data Analyst and Operations Analyst roles where deep diagnostics, 
-          process improvement, and practical decision support matter. I bridge hands-on 
-          operations experience with SQL, Excel, Python, and dashboards to help teams 
-          understand what&apos;s really happening in their data.
+          My work sits at the intersection of technical judgment and analysis. I help teams evaluate repair legitimacy, improve process consistency, and make better decisions by combining hands-on operational experience with structured reporting, SQL, Excel, and dashboards.
         </motion.p>
 
         {/* Pillars */}
@@ -87,10 +81,10 @@ export default function Hero() {
             Root cause investigation & operational diagnostics
           </span>
           <span className="rounded-full border border-slate-700 bg-slate-900/80 px-3 py-1 text-xs font-medium text-slate-200">
-            Data &amp; operations analysis
+            Repair, cost, and process analysis
           </span>
           <span className="rounded-full border border-slate-700 bg-slate-900/80 px-3 py-1 text-xs font-medium text-slate-200">
-            SQL, Excel, Python &amp; dashboards
+            SQL, Excel, Python &amp; decision-support dashboards
           </span>
         </motion.div>
 
